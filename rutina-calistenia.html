@@ -1,0 +1,2838 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rutina Calistenia 3 Meses</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#3b82d4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Calistenia">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;color:#1f2328;background:#fff;padding:24px;padding-bottom:80px;}
+.container{max-width:760px;margin:0 auto;}
+h1{font-size:24px;margin-bottom:4px;}
+h2{font-size:18px;color:#3b82d4;margin:28px 0 10px;border-bottom:2px solid #e5e7eb;padding-bottom:6px;}
+h3{font-size:15px;margin:18px 0 6px;}
+h4{font-size:12px;color:#57606a;margin:10px 0 4px;text-transform:uppercase;letter-spacing:.05em;}
+p{margin-bottom:8px;}
+.subtitle{color:#57606a;font-size:13px;margin-bottom:16px;}
+.badge{display:inline-block;background:#f7f8fa;border:1px solid #e5e7eb;border-radius:4px;padding:2px 8px;font-size:12px;color:#57606a;margin-right:6px;margin-bottom:4px;}
+.badge.blue{background:#eff6ff;border-color:#bfdbfe;color:#3b82d4;}
+.badge.purple{background:#f5f3ff;border-color:#ddd6fe;color:#7c5cd8;}
+.badge.green{background:#f0fdf4;border-color:#bbf7d0;color:#16a34a;}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px;}
+th{background:#f7f8fa;padding:8px 10px;text-align:left;border:1px solid #e5e7eb;font-weight:600;color:#57606a;font-size:12px;}
+td{padding:7px 10px;border:1px solid #e5e7eb;vertical-align:top;}
+tr:nth-child(even) td{background:#fafafa;}
+.highlight{background:#eff6ff!important;font-weight:600;}
+.warning{background:#fff7ed;border:1px solid #fed7aa;border-radius:6px;padding:10px 14px;font-size:13px;color:#9a3412;margin:12px 0;}
+.tip-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:10px 14px;font-size:13px;color:#166534;margin:12px 0;}
+.info-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:10px 14px;font-size:13px;color:#1e40af;margin:12px 0;}
+/* TABS */
+.cal-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap;}
+.cal-tab{padding:6px 14px;border-radius:6px;border:1px solid #e5e7eb;font-size:13px;font-weight:600;cursor:pointer;background:#f7f8fa;color:#57606a;}
+.cal-tab.active{background:#3b82d4;color:#fff;border-color:#3b82d4;}
+.cal-month{display:none;}
+.cal-month.active{display:block;}
+/* CALENDAR */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:6px;}
+.cal-day-header{text-align:center;font-size:11px;font-weight:700;color:#57606a;padding:4px 0;}
+.cal-cell{border:1px solid #e5e7eb;border-radius:6px;padding:6px;min-height:80px;font-size:11px;background:#fff;}
+.cal-cell.rest{background:#f7f8fa;}
+.cal-cell.empty{border:none;background:none;}
+.cal-num{font-weight:700;font-size:12px;color:#57606a;margin-bottom:3px;}
+.cal-block-label{font-size:10px;font-weight:700;margin-bottom:3px;padding:1px 4px;border-radius:3px;display:inline-block;}
+.block-a{background:#dbeafe;color:#1d4ed8;}
+.block-b{background:#ede9fe;color:#6d28d9;}
+.block-c{background:#d1fae5;color:#065f46;}
+.block-hiit{background:#fee2e2;color:#991b1b;}
+.block-rest{background:#f3f4f6;color:#6b7280;}
+.cal-ex-link{display:block;color:#3b82d4;text-decoration:none;font-size:10px;line-height:1.4;margin-bottom:1px;}
+.cal-ex-link:hover{text-decoration:underline;}
+.cal-section{font-size:9px;color:#57606a;font-weight:600;margin-top:3px;}
+/* EXERCISES */
+.exercise-card{border:1px solid #e5e7eb;border-radius:8px;margin-bottom:16px;overflow:hidden;scroll-margin-top:20px;}
+.exercise-header{background:#f7f8fa;padding:10px 14px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #e5e7eb;}
+.exercise-icon{width:60px;height:60px;flex-shrink:0;}
+.exercise-name{font-size:15px;font-weight:700;}
+.exercise-target{font-size:12px;color:#57606a;}
+.exercise-body{padding:12px 14px;}
+.exercise-steps{padding-left:18px;}
+.exercise-steps li{margin-bottom:4px;font-size:13px;}
+.tips{background:#eff6ff;border-left:3px solid #3b82d4;padding:8px 12px;border-radius:0 4px 4px 0;margin-top:8px;font-size:12px;color:#1e40af;}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #e5e7eb;text-align:center;font-size:12px;color:#57606a;}
+.btn-back{display:inline-block;margin-top:10px;padding:5px 14px;background:#f7f8fa;border:1px solid #e5e7eb;border-radius:6px;font-size:12px;color:#3b82d4;text-decoration:none;font-weight:600;}
+.btn-back:hover{background:#eff6ff;border-color:#bfdbfe;}
+/* YOUTUBE BUTTON */
+.btn-yt{display:inline-block;margin-top:8px;margin-right:8px;padding:5px 14px;background:#fee2e2;border:1px solid #fca5a5;border-radius:6px;font-size:12px;color:#dc2626;text-decoration:none;font-weight:600;}
+.btn-yt:hover{background:#fecaca;}
+/* NOTAS */
+.nota-box{margin-top:10px;background:#fffbeb;border:1px solid #fde68a;border-radius:6px;padding:10px 12px;font-size:12px;}
+.nota-box .nota-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
+.nota-box .nota-label{font-weight:700;color:#92400e;font-size:11px;text-transform:uppercase;letter-spacing:.04em;}
+.nota-box .nota-fecha{font-size:10px;color:#b45309;}
+.nota-box .nota-texto{color:#78350f;line-height:1.5;}
+.nota-box .btn-del-nota{background:none;border:none;cursor:pointer;color:#b45309;font-size:13px;padding:0 4px;}
+.nota-editor{margin-top:8px;}
+.nota-editor textarea{width:100%;border:1px solid #e5e7eb;border-radius:6px;padding:6px 8px;font-size:12px;font-family:inherit;resize:vertical;min-height:60px;}
+.nota-editor .nota-actions{display:flex;gap:6px;margin-top:4px;}
+.nota-editor .btn-save-nota{padding:4px 12px;background:#3b82d4;color:#fff;border:none;border-radius:6px;font-size:12px;cursor:pointer;font-weight:600;}
+.nota-editor .btn-cancel-nota{padding:4px 10px;background:#f7f8fa;color:#57606a;border:1px solid #e5e7eb;border-radius:6px;font-size:12px;cursor:pointer;}
+.btn-add-nota{background:none;border:none;cursor:pointer;color:#57606a;font-size:11px;padding:4px 0;margin-top:6px;text-decoration:underline;text-underline-offset:2px;}
+/* CRONÓMETRO */
+.cal-ex-row{display:flex;align-items:center;gap:2px;margin-bottom:1px;border-radius:4px;padding:1px 2px;}
+.cal-ex-row.completed{background:#f0fdf4;}
+.cal-ex-row.completed .cal-ex-link{color:#15803d;text-decoration:line-through;opacity:0.8;}
+.btn-cron-check{background:none;border:none;padding:0 2px;cursor:pointer;font-size:11px;line-height:1;color:#16a34a;flex-shrink:0;}
+.btn-cron-icon{background:none;border:none;padding:0 1px;cursor:pointer;font-size:10px;line-height:1;color:#16a34a;flex-shrink:0;opacity:.8;}
+.btn-cron-icon:hover{opacity:1;}
+.cron-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;align-items:flex-end;justify-content:center;}
+.cron-overlay.open{display:flex;}
+.cron-modal{background:#fff;border-radius:20px 20px 0 0;padding:24px 24px 36px;width:100%;max-width:480px;box-shadow:0 -4px 24px rgba(0,0,0,.12);}
+.cron-title{font-size:15px;font-weight:700;color:#1f2328;text-align:center;margin-bottom:2px;}
+.cron-sub{font-size:12px;color:#57606a;text-align:center;margin-bottom:16px;}
+.cron-display{font-size:56px;font-weight:700;text-align:center;letter-spacing:3px;font-variant-numeric:tabular-nums;color:#1f2328;line-height:1;margin-bottom:6px;}
+.cron-display.running{color:#16a34a;}
+.cron-display.done{color:#3b82d4;}
+.cron-status{font-size:13px;text-align:center;min-height:20px;margin-bottom:16px;color:#57606a;font-weight:600;}
+.cron-status.alert{color:#dc2626;}
+.cron-btns{display:flex;gap:10px;justify-content:center;margin-bottom:14px;}
+.cron-btn{padding:11px 26px;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;flex:1;max-width:140px;}
+.cron-btn.start{background:#16a34a;color:#fff;}
+.cron-btn.stop{background:#dc2626;color:#fff;}
+.cron-btn.reset{background:#f7f8fa;color:#57606a;border:1px solid #e5e7eb;}
+.cron-close{width:100%;padding:10px;border:none;background:#f7f8fa;border-radius:10px;font-size:13px;font-weight:600;color:#57606a;cursor:pointer;border:1px solid #e5e7eb;}
+.cron-mode-tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;margin:0 auto 12px;display:block;text-align:center;}
+.cron-mode-tag.countdown{background:#d1fae5;color:#065f46;}
+.cron-mode-tag.stopwatch{background:#eff6ff;color:#1d4ed8;}
+.cron-mode-tag.warmup{background:#fff7ed;color:#c2410c;}
+.cron-mode-tag.stretch{background:#f5f3ff;color:#6d28d9;}
+/* VISOR 3 DÍAS */
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:6px;}
+.cal-nav-arrow{background:none;border:1px solid #e5e7eb;border-radius:8px;padding:6px 14px;font-size:18px;cursor:pointer;color:#3b82d4;font-weight:700;flex-shrink:0;line-height:1;}
+.cal-nav-arrow:active{background:#eff6ff;}
+.cal-nav-info{text-align:center;font-size:12px;color:#57606a;font-weight:600;flex:1;}
+.cal-nav-info span{display:block;font-size:10px;color:#adb5bd;font-weight:400;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:6px;}
+.cal-grid.view3{grid-template-columns:repeat(3,1fr);}
+.cal-day-header{text-align:center;font-size:11px;font-weight:700;color:#57606a;padding:4px 0;}
+.cal-cell{border:1px solid #e5e7eb;border-radius:6px;padding:6px;min-height:80px;font-size:11px;background:#fff;transition:box-shadow .15s;}
+.cal-cell.today{border-color:#3b82d4;box-shadow:0 0 0 2px #bfdbfe;}
+/* Visor 3 días: tamaños grandes */
+.cal-grid.view3 .cal-day-header{font-size:15px;padding:6px 0;}
+.cal-grid.view3 .cal-cell{font-size:14px;padding:10px;min-height:120px;}
+.cal-grid.view3 .cal-num{font-size:15px;margin-bottom:5px;}
+.cal-grid.view3 .cal-block-label{font-size:12px;padding:2px 7px;margin-bottom:5px;}
+.cal-grid.view3 .cal-section{font-size:11px;margin-top:6px;}
+.cal-grid.view3 .cal-ex-link{font-size:13px;line-height:1.7;margin-bottom:2px;}
+.cal-grid.view3 .btn-cron-icon{font-size:16px;padding:0 3px;}
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e7eb;display:flex;z-index:100;}
+.bottom-nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px;text-decoration:none;color:#57606a;font-size:10px;font-weight:600;gap:2px;border:none;background:none;cursor:pointer;}
+.bottom-nav a.active{color:#3b82d4;}
+.bottom-nav a svg{width:22px;height:22px;}
+/* SECTIONS */
+.app-section{display:none;}
+.app-section.active{display:block;}
+/* MOBILE RESPONSIVE */
+@media(max-width:480px){
+  body{padding:12px;padding-bottom:80px;}
+  h1{font-size:19px;}
+  h2{font-size:16px;}
+  .cal-grid{grid-template-columns:repeat(7,1fr);gap:2px;}
+  .cal-cell{padding:3px;min-height:60px;}
+  .cal-num{font-size:10px;}
+  .cal-block-label{font-size:8px;padding:1px 3px;}
+  .cal-ex-link{font-size:9px;}
+  .cal-section{font-size:8px;}
+  .cal-tabs{gap:4px;}
+  .cal-tab{padding:5px 10px;font-size:12px;}
+  table{font-size:12px;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .exercise-card{margin-bottom:12px;}
+  .exercise-header{padding:8px 10px;}
+  .exercise-name{font-size:13px;}
+  .exercise-body{padding:10px 10px;}
+  /* En mobile visor 3 días sigue grande */
+  .cal-grid.view3 .cal-day-header{font-size:14px;}
+  .cal-grid.view3 .cal-cell{font-size:13px;padding:8px;min-height:100px;}
+  .cal-grid.view3 .cal-num{font-size:14px;}
+  .cal-grid.view3 .cal-block-label{font-size:11px;}
+  .cal-grid.view3 .cal-section{font-size:10px;}
+  .cal-grid.view3 .cal-ex-link{font-size:12px;line-height:1.6;}
+  .cal-grid.view3 .btn-cron-icon{font-size:15px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div id="section-rutina" class="app-section active">
+<div id="calendario"></div>
+<h1>🏋️ Rutina Calistenia — 3 Meses</h1>
+<p class="subtitle">Sin equipamiento · 30 min/día · 5-6 días por semana · Pérdida de peso + Fuerza + Core/Pelvis</p>
+<div style="margin-bottom:20px;">
+  <span class="badge blue">3 meses</span>
+  <span class="badge blue">30 min/día</span>
+  <span class="badge blue">5-6 días/semana</span>
+  <span class="badge purple">Pérdida de peso</span>
+  <span class="badge purple">Hipertrofia</span>
+  <span class="badge green">Core &amp; Pelvis</span>
+</div>
+
+<div class="info-box">
+  <strong>⚖️ Estimación pérdida de peso:</strong><br>
+  Con esta rutina + buena alimentación: <strong>4–8 kg en 3 meses</strong>.<br>
+  Para bajar <strong>15 kg</strong> necesitás aproximadamente <strong>5 a 7 meses</strong> a este ritmo.<br>
+  Si aumentás a 45 min/día desde el mes 2 y agregás caminata en días de descanso, podés lograrlo en <strong>4 a 5 meses</strong>.
+</div>
+
+<h2>📅 Calendario de Entrenamiento</h2>
+<p style="font-size:13px;color:#57606a;margin-bottom:10px;">Presioná ⏱ para cronómetro · tocá el nombre para ver la explicación.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+  <span class="cal-block-label block-a">Bloque A</span>
+  <span class="cal-block-label block-b">Bloque B</span>
+  <span class="cal-block-label block-c">Bloque C</span>
+  <span class="cal-block-label block-hiit">HIIT</span>
+  <span class="cal-block-label block-rest">Descanso</span>
+</div>
+
+<div class="cal-tabs">
+  <div class="cal-tab active" onclick="showMonth('m1',this)">Mes 1</div>
+  <div class="cal-tab" onclick="showMonth('m2',this)">Mes 2</div>
+  <div class="cal-tab" onclick="showMonth('m3',this)">Mes 3</div>
+</div>
+
+<!-- Navegación visor 3 días -->
+<div class="cal-nav" id="cal-nav">
+  <button class="cal-nav-arrow" onclick="calNavMover(-3)">‹</button>
+  <div class="cal-nav-info" id="cal-nav-info">
+    Días 1 – 3
+    <span id="cal-nav-sub">Semana 1</span>
+  </div>
+  <button class="cal-nav-arrow" onclick="calNavMover(3)">›</button>
+</div>
+
+<!-- MES 1 -->
+<div class="cal-month active" id="m1">
+<div class="cal-grid">
+  <div class="cal-day-header">LUN</div><div class="cal-day-header">MAR</div><div class="cal-day-header">MIÉ</div><div class="cal-day-header">JUE</div><div class="cal-day-header">VIE</div><div class="cal-day-header">SÁB</div><div class="cal-day-header">DOM</div>
+  <!-- Semana 1 -->
+  <div class="cal-cell"><div class="cal-num">1</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">🔥 Calentamiento</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks</a>
+    <a class="cal-ex-link" href="#rotacion-hombros">Rot. hombros</a>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 3×8</a>
+    <a class="cal-ex-link" href="#dips">Dips silla 3×8</a>
+    <a class="cal-ex-link" href="#plancha">Plancha 3×25s</a>
+    <a class="cal-ex-link" href="#mountain">Mountain 3×20s</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+    <div class="cal-section">🧘 Estiramiento</div>
+    <a class="cal-ex-link" href="#est-pecho">Est. pecho</a>
+    <a class="cal-ex-link" href="#est-triceps">Est. tríceps</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">2</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">🔥 Calentamiento</div>
+    <a class="cal-ex-link" href="#rotacion-cadera">Rot. cadera</a>
+    <a class="cal-ex-link" href="#sentadilla-parcial">Squat parcial</a>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 3×12</a>
+    <a class="cal-ex-link" href="#zancadas">Zancadas 3×10</a>
+    <a class="cal-ex-link" href="#puente">Puente glúteos 3×12</a>
+    <a class="cal-ex-link" href="#sumo">Squat sumo 3×12</a>
+    <a class="cal-ex-link" href="#kegel">Kegel largo 3×5s</a>
+    <div class="cal-section">🧘 Estiramiento</div>
+    <a class="cal-ex-link" href="#est-cuad">Est. cuádriceps</a>
+    <a class="cal-ex-link" href="#est-gluteo">Est. glúteo</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">3</div><span class="cal-block-label block-c">Bloque C</span>
+    <div class="cal-section">🔥 Calentamiento</div>
+    <a class="cal-ex-link" href="#cat-cow">Cat-Cow</a>
+    <a class="cal-ex-link" href="#rotacion-hombros">Rot. hombros</a>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#remo">Remo australiano 3×8</a>
+    <a class="cal-ex-link" href="#superman">Superman 3×10</a>
+    <a class="cal-ex-link" href="#plancha-lateral">Plancha lateral 3×20s</a>
+    <a class="cal-ex-link" href="#bicicleta">Crunches bici 3×20</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+    <div class="cal-section">🧘 Estiramiento</div>
+    <a class="cal-ex-link" href="#est-espalda">Est. espalda</a>
+    <a class="cal-ex-link" href="#est-lumbar">Est. lumbar</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">4</div><span class="cal-block-label block-hiit">HIIT</span>
+    <div class="cal-section">🔥 Calentamiento</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks</a>
+    <div class="cal-section">💪 Circuito 4 rondas</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 20s</a>
+    <a class="cal-ex-link" href="#sentadilla-salto">Squat salto 20s</a>
+    <a class="cal-ex-link" href="#mountain">Mountain 20s</a>
+    <a class="cal-ex-link" href="#burpees">Burpees 20s</a>
+    <a class="cal-ex-link" href="#high-knees">High Knees 20s</a>
+    <div class="cal-section">🧘 Estiramiento</div>
+    <a class="cal-ex-link" href="#est-full">Full body stretch</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">5</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">🔥 Calentamiento</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks</a>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 3×9</a>
+    <a class="cal-ex-link" href="#dips">Dips silla 3×9</a>
+    <a class="cal-ex-link" href="#plancha">Plancha 3×25s</a>
+    <a class="cal-ex-link" href="#mountain">Mountain 3×20s</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+    <div class="cal-section">🧘 Estiramiento</div>
+    <a class="cal-ex-link" href="#est-pecho">Est. pecho</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">6</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">🔥 Calentamiento</div>
+    <a class="cal-ex-link" href="#rotacion-cadera">Rot. cadera</a>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 3×13</a>
+    <a class="cal-ex-link" href="#zancadas">Zancadas 3×10</a>
+    <a class="cal-ex-link" href="#puente">Puente glúteos 3×13</a>
+    <a class="cal-ex-link" href="#sumo">Squat sumo 3×13</a>
+    <a class="cal-ex-link" href="#kegel">Kegel largo 3×5s</a>
+    <div class="cal-section">🧘 Estiramiento</div>
+    <a class="cal-ex-link" href="#est-cuad">Est. cuádriceps</a>
+  </div>
+  <div class="cal-cell rest"><div class="cal-num">7</div><span class="cal-block-label block-rest">Descanso</span>
+    <div style="font-size:10px;color:#57606a;margin-top:4px;">Caminata 20 min + stretching</div>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <!-- Semana 2 -->
+  <div class="cal-cell"><div class="cal-num">8</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 3×10</a>
+    <a class="cal-ex-link" href="#dips">Dips 3×10</a>
+    <a class="cal-ex-link" href="#flex-diamante">Diamante 2×6</a>
+    <a class="cal-ex-link" href="#plancha">Plancha 3×30s</a>
+    <a class="cal-ex-link" href="#mountain">Mountain 3×20s</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">9</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 3×15</a>
+    <a class="cal-ex-link" href="#zancadas">Zancadas 3×12</a>
+    <a class="cal-ex-link" href="#puente">Puente 3×15</a>
+    <a class="cal-ex-link" href="#sumo">Sumo squat 3×12</a>
+    <a class="cal-ex-link" href="#kegel">Kegel largo 3×5s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">10</div><span class="cal-block-label block-c">Bloque C</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#remo">Remo 3×8</a>
+    <a class="cal-ex-link" href="#superman">Superman 3×12</a>
+    <a class="cal-ex-link" href="#plancha-lateral">Plancha lat. 3×20s</a>
+    <a class="cal-ex-link" href="#bicicleta">Bicicleta 3×20</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">11</div><span class="cal-block-label block-hiit">HIIT</span>
+    <div class="cal-section">💪 Circuito 4 rondas</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 20s</a>
+    <a class="cal-ex-link" href="#sentadilla-salto">Squat salto 20s</a>
+    <a class="cal-ex-link" href="#mountain">Mountain 20s</a>
+    <a class="cal-ex-link" href="#burpees">Burpees 20s</a>
+    <a class="cal-ex-link" href="#high-knees">High Knees 20s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">12</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 3×10</a>
+    <a class="cal-ex-link" href="#dips">Dips 3×10</a>
+    <a class="cal-ex-link" href="#flex-diamante">Diamante 2×8</a>
+    <a class="cal-ex-link" href="#plancha">Plancha 3×30s</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">13</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 3×15</a>
+    <a class="cal-ex-link" href="#zancadas">Zancadas 3×12</a>
+    <a class="cal-ex-link" href="#puente">Puente 3×15</a>
+    <a class="cal-ex-link" href="#kegel">Kegel largo 3×6s</a>
+  </div>
+  <div class="cal-cell rest"><div class="cal-num">14</div><span class="cal-block-label block-rest">Descanso</span>
+    <div style="font-size:10px;color:#57606a;margin-top:4px;">Caminata 20 min</div>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <!-- Semana 3 -->
+  <div class="cal-cell"><div class="cal-num">15</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 3×10</a>
+    <a class="cal-ex-link" href="#dips">Dips 3×10</a>
+    <a class="cal-ex-link" href="#flex-diamante">Diamante 2×8</a>
+    <a class="cal-ex-link" href="#plancha">Plancha 3×30s</a>
+    <a class="cal-ex-link" href="#mountain">Mountain 3×25s</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">16</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 3×15</a>
+    <a class="cal-ex-link" href="#zancadas">Zancadas 3×12</a>
+    <a class="cal-ex-link" href="#puente">Puente 3×15</a>
+    <a class="cal-ex-link" href="#sumo">Sumo 3×15</a>
+    <a class="cal-ex-link" href="#kegel">Kegel largo 3×7s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">17</div><span class="cal-block-label block-c">Bloque C</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#remo">Remo 3×10</a>
+    <a class="cal-ex-link" href="#superman">Superman 3×12</a>
+    <a class="cal-ex-link" href="#plancha-lateral">Plancha lat. 3×25s</a>
+    <a class="cal-ex-link" href="#bicicleta">Bicicleta 3×25</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">18</div><span class="cal-block-label block-hiit">HIIT</span>
+    <div class="cal-section">💪 Circuito 4 rondas</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 20s</a>
+    <a class="cal-ex-link" href="#sentadilla-salto">Squat salto 20s</a>
+    <a class="cal-ex-link" href="#mountain">Mountain 20s</a>
+    <a class="cal-ex-link" href="#burpees">Burpees 20s</a>
+    <a class="cal-ex-link" href="#high-knees">High Knees 20s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">19</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 3×10</a>
+    <a class="cal-ex-link" href="#dips">Dips 3×10</a>
+    <a class="cal-ex-link" href="#flex-diamante">Diamante 2×8</a>
+    <a class="cal-ex-link" href="#plancha">Plancha 3×30s</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">20</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 3×15</a>
+    <a class="cal-ex-link" href="#zancadas">Zancadas 3×12</a>
+    <a class="cal-ex-link" href="#puente">Puente 3×15</a>
+    <a class="cal-ex-link" href="#kegel">Kegel largo 3×7s</a>
+  </div>
+  <div class="cal-cell rest"><div class="cal-num">21</div><span class="cal-block-label block-rest">Descanso</span>
+    <div style="font-size:10px;color:#57606a;margin-top:4px;">Caminata 25 min</div>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <!-- Semana 4 -->
+  <div class="cal-cell"><div class="cal-num">22</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 3×10</a>
+    <a class="cal-ex-link" href="#dips">Dips 3×10</a>
+    <a class="cal-ex-link" href="#flex-diamante">Diamante 2×10</a>
+    <a class="cal-ex-link" href="#plancha">Plancha 3×30s</a>
+    <a class="cal-ex-link" href="#mountain">Mountain 3×25s</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">23</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 3×15</a>
+    <a class="cal-ex-link" href="#zancadas">Zancadas 3×12</a>
+    <a class="cal-ex-link" href="#puente">Puente 3×15</a>
+    <a class="cal-ex-link" href="#sumo">Sumo 3×15</a>
+    <a class="cal-ex-link" href="#kegel">Kegel largo 3×8s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">24</div><span class="cal-block-label block-c">Bloque C</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#remo">Remo 3×10</a>
+    <a class="cal-ex-link" href="#superman">Superman 3×12</a>
+    <a class="cal-ex-link" href="#plancha-lateral">Plancha lat. 3×25s</a>
+    <a class="cal-ex-link" href="#bicicleta">Bicicleta 3×25</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">25</div><span class="cal-block-label block-hiit">HIIT</span>
+    <div class="cal-section">💪 Circuito 4 rondas</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 20s</a>
+    <a class="cal-ex-link" href="#sentadilla-salto">Squat salto 20s</a>
+    <a class="cal-ex-link" href="#mountain">Mountain 20s</a>
+    <a class="cal-ex-link" href="#burpees">Burpees 20s</a>
+    <a class="cal-ex-link" href="#high-knees">High Knees 20s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">26</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 3×10</a>
+    <a class="cal-ex-link" href="#dips">Dips 3×10</a>
+    <a class="cal-ex-link" href="#flex-diamante">Diamante 2×10</a>
+    <a class="cal-ex-link" href="#plancha">Plancha 3×30s</a>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">27</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 3×15</a>
+    <a class="cal-ex-link" href="#zancadas">Zancadas 3×12</a>
+    <a class="cal-ex-link" href="#puente">Puente 3×15</a>
+    <a class="cal-ex-link" href="#kegel">Kegel largo 3×8s</a>
+  </div>
+  <div class="cal-cell rest"><div class="cal-num">28</div><span class="cal-block-label block-rest">Descanso</span>
+    <div style="font-size:10px;color:#57606a;margin-top:4px;">Caminata 30 min</div>
+    <a class="cal-ex-link" href="#kegel">Kegel 3×10</a>
+  </div>
+</div>
+<div class="tip-box">✅ <strong>Fin Mes 1.</strong> Evaluá cuántas flexiones y sentadillas podés hacer y cuánto tiempo aguantás la plancha. Ajustá el Mes 2 según tu nivel.</div>
+</div>
+
+<!-- MES 2 -->
+<div class="cal-month" id="m2">
+<div class="cal-grid">
+  <div class="cal-day-header">LUN</div><div class="cal-day-header">MAR</div><div class="cal-day-header">MIÉ</div><div class="cal-day-header">JUE</div><div class="cal-day-header">VIE</div><div class="cal-day-header">SÁB</div><div class="cal-day-header">DOM</div>
+  <!-- Semana 5 -->
+  <div class="cal-cell"><div class="cal-num">1</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">🔥 Calentamiento</div><a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks</a><a class="cal-ex-link" href="#rotacion-hombros">Rot. hombros</a>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 4×12</a><a class="cal-ex-link" href="#dips">Dips 3×12</a><a class="cal-ex-link" href="#flex-diamante">Diamante 3×10</a><a class="cal-ex-link" href="#plancha">Plancha 3×45s</a><a class="cal-ex-link" href="#mountain">Mountain 3×30s</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+    <div class="cal-section">🧘 Estiramiento</div><a class="cal-ex-link" href="#est-pecho">Est. pecho</a><a class="cal-ex-link" href="#est-triceps">Est. tríceps</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">2</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">🔥 Calentamiento</div><a class="cal-ex-link" href="#rotacion-cadera">Rot. cadera</a>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 4×15</a><a class="cal-ex-link" href="#zancadas">Zancadas 3×12</a><a class="cal-ex-link" href="#puente">Puente 4×15</a><a class="cal-ex-link" href="#sumo">Sumo 3×15</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×8s</a>
+    <div class="cal-section">🧘 Estiramiento</div><a class="cal-ex-link" href="#est-cuad">Est. cuádriceps</a><a class="cal-ex-link" href="#est-gluteo">Est. glúteo</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">3</div><span class="cal-block-label block-c">Bloque C</span>
+    <div class="cal-section">🔥 Calentamiento</div><a class="cal-ex-link" href="#cat-cow">Cat-Cow</a>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#remo">Remo 3×10</a><a class="cal-ex-link" href="#superman">Superman 3×12</a><a class="cal-ex-link" href="#plancha-lateral">Plancha lat. 3×35s</a><a class="cal-ex-link" href="#bicicleta">Bicicleta 3×25</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+    <div class="cal-section">🧘 Estiramiento</div><a class="cal-ex-link" href="#est-espalda">Est. espalda</a><a class="cal-ex-link" href="#est-lumbar">Est. lumbar</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">4</div><span class="cal-block-label block-hiit">HIIT</span>
+    <div class="cal-section">💪 Circuito 4 rondas</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 30s</a><a class="cal-ex-link" href="#sentadilla-salto">Squat salto 30s</a><a class="cal-ex-link" href="#mountain">Mountain 30s</a><a class="cal-ex-link" href="#burpees">Burpees 30s</a><a class="cal-ex-link" href="#high-knees">High Knees 30s</a>
+    <div class="cal-section">🧘 Estiramiento</div><a class="cal-ex-link" href="#est-full">Full body stretch</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">5</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 4×12</a><a class="cal-ex-link" href="#dips">Dips 3×12</a><a class="cal-ex-link" href="#plancha">Plancha 3×45s</a><a class="cal-ex-link" href="#mountain">Mountain 3×30s</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">6</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 4×15</a><a class="cal-ex-link" href="#zancadas">Zancadas 3×12</a><a class="cal-ex-link" href="#puente">Puente 4×15</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×8s</a>
+  </div>
+  <div class="cal-cell rest"><div class="cal-num">7</div><span class="cal-block-label block-rest">Descanso</span><div style="font-size:10px;color:#57606a;margin-top:4px;">Caminata 30 min</div><a class="cal-ex-link" href="#kegel">Kegel 3×15</a></div>
+  <!-- Semana 6 -->
+  <div class="cal-cell"><div class="cal-num">8</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 4×13</a><a class="cal-ex-link" href="#dips">Dips 4×12</a><a class="cal-ex-link" href="#flex-diamante">Diamante 3×10</a><a class="cal-ex-link" href="#plancha">Plancha 3×45s</a><a class="cal-ex-link" href="#mountain">Mountain 3×30s</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">9</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 4×17</a><a class="cal-ex-link" href="#zancadas">Zancadas 3×13</a><a class="cal-ex-link" href="#puente">Puente 4×17</a><a class="cal-ex-link" href="#sumo">Sumo 3×17</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×8s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">10</div><span class="cal-block-label block-c">Bloque C</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#remo">Remo 3×12</a><a class="cal-ex-link" href="#superman">Superman 3×14</a><a class="cal-ex-link" href="#plancha-lateral">Plancha lat. 3×35s</a><a class="cal-ex-link" href="#bicicleta">Bicicleta 3×28</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">11</div><span class="cal-block-label block-hiit">HIIT</span>
+    <div class="cal-section">💪 Circuito 4 rondas</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 30s</a><a class="cal-ex-link" href="#sentadilla-salto">Squat salto 30s</a><a class="cal-ex-link" href="#mountain">Mountain 30s</a><a class="cal-ex-link" href="#burpees">Burpees 30s</a><a class="cal-ex-link" href="#high-knees">High Knees 30s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">12</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 4×13</a><a class="cal-ex-link" href="#dips">Dips 4×12</a><a class="cal-ex-link" href="#plancha">Plancha 3×45s</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">13</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 4×17</a><a class="cal-ex-link" href="#puente">Puente 4×17</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×8s</a>
+  </div>
+  <div class="cal-cell rest"><div class="cal-num">14</div><span class="cal-block-label block-rest">Descanso</span><a class="cal-ex-link" href="#kegel">Kegel 3×15</a></div>
+  <!-- Semana 7 -->
+  <div class="cal-cell"><div class="cal-num">15</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 4×15</a><a class="cal-ex-link" href="#dips">Dips 4×13</a><a class="cal-ex-link" href="#flex-diamante">Diamante 3×12</a><a class="cal-ex-link" href="#plancha">Plancha 3×50s</a><a class="cal-ex-link" href="#mountain">Mountain 3×35s</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">16</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 4×18</a><a class="cal-ex-link" href="#zancadas">Zancadas 3×14</a><a class="cal-ex-link" href="#puente">Puente 4×18</a><a class="cal-ex-link" href="#sumo">Sumo 3×18</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×8s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">17</div><span class="cal-block-label block-c">Bloque C</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#remo">Remo 3×12</a><a class="cal-ex-link" href="#superman">Superman 3×15</a><a class="cal-ex-link" href="#plancha-lateral">Plancha lat. 3×40s</a><a class="cal-ex-link" href="#bicicleta">Bicicleta 3×30</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">18</div><span class="cal-block-label block-hiit">HIIT</span>
+    <div class="cal-section">💪 Circuito 4 rondas</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 30s</a><a class="cal-ex-link" href="#sentadilla-salto">Squat salto 30s</a><a class="cal-ex-link" href="#mountain">Mountain 30s</a><a class="cal-ex-link" href="#burpees">Burpees 30s</a><a class="cal-ex-link" href="#high-knees">High Knees 30s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">19</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 4×15</a><a class="cal-ex-link" href="#dips">Dips 4×13</a><a class="cal-ex-link" href="#plancha">Plancha 3×50s</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">20</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 4×18</a><a class="cal-ex-link" href="#puente">Puente 4×18</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×8s</a>
+  </div>
+  <div class="cal-cell rest"><div class="cal-num">21</div><span class="cal-block-label block-rest">Descanso</span><a class="cal-ex-link" href="#kegel">Kegel 3×15</a></div>
+  <!-- Semana 8 -->
+  <div class="cal-cell"><div class="cal-num">22</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 4×15</a><a class="cal-ex-link" href="#dips">Dips 4×14</a><a class="cal-ex-link" href="#flex-diamante">Diamante 3×12</a><a class="cal-ex-link" href="#plancha">Plancha 3×50s</a><a class="cal-ex-link" href="#mountain">Mountain 3×35s</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">23</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 4×20</a><a class="cal-ex-link" href="#zancadas">Zancadas 3×15</a><a class="cal-ex-link" href="#puente">Puente 4×20</a><a class="cal-ex-link" href="#sumo">Sumo 3×20</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×8s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">24</div><span class="cal-block-label block-c">Bloque C</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#remo">Remo 4×12</a><a class="cal-ex-link" href="#superman">Superman 3×15</a><a class="cal-ex-link" href="#plancha-lateral">Plancha lat. 3×40s</a><a class="cal-ex-link" href="#bicicleta">Bicicleta 3×30</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">25</div><span class="cal-block-label block-hiit">HIIT</span>
+    <div class="cal-section">💪 Circuito 4 rondas</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 30s</a><a class="cal-ex-link" href="#sentadilla-salto">Squat salto 30s</a><a class="cal-ex-link" href="#mountain">Mountain 30s</a><a class="cal-ex-link" href="#burpees">Burpees 30s</a><a class="cal-ex-link" href="#high-knees">High Knees 30s</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">26</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 4×15</a><a class="cal-ex-link" href="#dips">Dips 4×14</a><a class="cal-ex-link" href="#plancha">Plancha 3×50s</a><a class="cal-ex-link" href="#kegel">Kegel 3×15</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">27</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 4×20</a><a class="cal-ex-link" href="#puente">Puente 4×20</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×8s</a>
+  </div>
+  <div class="cal-cell rest"><div class="cal-num">28</div><span class="cal-block-label block-rest">Descanso</span><a class="cal-ex-link" href="#kegel">Kegel 3×15</a></div>
+</div>
+<div class="tip-box">✅ <strong>Fin Mes 2.</strong> Deberías notar ropa más suelta y más resistencia. ¡Preparate para el mes final!</div>
+</div>
+
+<!-- MES 3 -->
+<div class="cal-month" id="m3">
+<div class="cal-grid">
+  <div class="cal-day-header">LUN</div><div class="cal-day-header">MAR</div><div class="cal-day-header">MIÉ</div><div class="cal-day-header">JUE</div><div class="cal-day-header">VIE</div><div class="cal-day-header">SÁB</div><div class="cal-day-header">DOM</div>
+  <!-- Semana 9 -->
+  <div class="cal-cell"><div class="cal-num">1</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">🔥 Calentamiento</div><a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks</a><a class="cal-ex-link" href="#rotacion-hombros">Rot. hombros</a>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 4×15</a><a class="cal-ex-link" href="#dips">Dips 4×15</a><a class="cal-ex-link" href="#flex-diamante">Diamante 4×12</a><a class="cal-ex-link" href="#plancha">Plancha 4×60s</a><a class="cal-ex-link" href="#mountain">Mountain 4×40s</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a>
+    <div class="cal-section">🧘 Estiramiento</div><a class="cal-ex-link" href="#est-pecho">Est. pecho</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">2</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">🔥 Calentamiento</div><a class="cal-ex-link" href="#rotacion-cadera">Rot. cadera</a>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 4×20</a><a class="cal-ex-link" href="#zancadas">Zancadas 4×15</a><a class="cal-ex-link" href="#puente">Puente 4×20</a><a class="cal-ex-link" href="#sumo">Sumo 4×20</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×10s</a>
+    <div class="cal-section">🧘 Estiramiento</div><a class="cal-ex-link" href="#est-cuad">Est. cuádriceps</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">3</div><span class="cal-block-label block-c">Bloque C</span>
+    <div class="cal-section">🔥 Calentamiento</div><a class="cal-ex-link" href="#cat-cow">Cat-Cow</a>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#remo">Remo 4×12</a><a class="cal-ex-link" href="#superman">Superman 4×15</a><a class="cal-ex-link" href="#plancha-lateral">Plancha lat. 4×45s</a><a class="cal-ex-link" href="#bicicleta">Bicicleta 4×30</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a>
+    <div class="cal-section">🧘 Estiramiento</div><a class="cal-ex-link" href="#est-espalda">Est. espalda</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">4</div><span class="cal-block-label block-hiit">HIIT</span>
+    <div class="cal-section">💪 Circuito 4 rondas</div>
+    <a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 40s</a><a class="cal-ex-link" href="#sentadilla-salto">Squat salto 40s</a><a class="cal-ex-link" href="#mountain">Mountain 40s</a><a class="cal-ex-link" href="#burpees">Burpees 40s</a><a class="cal-ex-link" href="#high-knees">High Knees 40s</a>
+    <div class="cal-section">🧘 Estiramiento</div><a class="cal-ex-link" href="#est-full">Full body stretch</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">5</div><span class="cal-block-label block-a">Bloque A</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#flexiones">Flexiones 4×15</a><a class="cal-ex-link" href="#dips">Dips 4×15</a><a class="cal-ex-link" href="#plancha">Plancha 4×60s</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a>
+  </div>
+  <div class="cal-cell"><div class="cal-num">6</div><span class="cal-block-label block-b">Bloque B</span>
+    <div class="cal-section">💪 Ejercicios</div>
+    <a class="cal-ex-link" href="#sentadilla">Sentadilla 4×20</a><a class="cal-ex-link" href="#puente">Puente 4×20</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×10s</a>
+  </div>
+  <div class="cal-cell rest"><div class="cal-num">7</div><span class="cal-block-label block-rest">Descanso</span><div style="font-size:10px;color:#57606a;margin-top:4px;">Caminata 30 min</div><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <!-- Semanas 10-12 -->
+  <div class="cal-cell"><div class="cal-num">8</div><span class="cal-block-label block-a">Bloque A</span><div style="font-size:10px;color:#57606a;margin-top:4px;">Mismo que día 1 +1 rep</div><a class="cal-ex-link" href="#flexiones">Flexiones 4×16</a><a class="cal-ex-link" href="#dips">Dips 4×16</a><a class="cal-ex-link" href="#plancha">Plancha 4×60s</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <div class="cal-cell"><div class="cal-num">9</div><span class="cal-block-label block-b">Bloque B</span><a class="cal-ex-link" href="#sentadilla">Sentadilla 4×21</a><a class="cal-ex-link" href="#zancadas">Zancadas 4×16</a><a class="cal-ex-link" href="#puente">Puente 4×21</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×10s</a></div>
+  <div class="cal-cell"><div class="cal-num">10</div><span class="cal-block-label block-c">Bloque C</span><a class="cal-ex-link" href="#remo">Remo 4×13</a><a class="cal-ex-link" href="#superman">Superman 4×16</a><a class="cal-ex-link" href="#plancha-lateral">Plancha lat. 4×45s</a><a class="cal-ex-link" href="#bicicleta">Bicicleta 4×32</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <div class="cal-cell"><div class="cal-num">11</div><span class="cal-block-label block-hiit">HIIT</span><a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 40s</a><a class="cal-ex-link" href="#sentadilla-salto">Squat salto 40s</a><a class="cal-ex-link" href="#mountain">Mountain 40s</a><a class="cal-ex-link" href="#burpees">Burpees 40s</a><a class="cal-ex-link" href="#high-knees">High Knees 40s</a></div>
+  <div class="cal-cell"><div class="cal-num">12</div><span class="cal-block-label block-a">Bloque A</span><a class="cal-ex-link" href="#flexiones">Flexiones 4×16</a><a class="cal-ex-link" href="#dips">Dips 4×16</a><a class="cal-ex-link" href="#plancha">Plancha 4×60s</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <div class="cal-cell"><div class="cal-num">13</div><span class="cal-block-label block-b">Bloque B</span><a class="cal-ex-link" href="#sentadilla">Sentadilla 4×21</a><a class="cal-ex-link" href="#puente">Puente 4×21</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×10s</a></div>
+  <div class="cal-cell rest"><div class="cal-num">14</div><span class="cal-block-label block-rest">Descanso</span><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <div class="cal-cell"><div class="cal-num">15</div><span class="cal-block-label block-a">Bloque A</span><a class="cal-ex-link" href="#flexiones">Flexiones 4×17</a><a class="cal-ex-link" href="#dips">Dips 4×17</a><a class="cal-ex-link" href="#flex-diamante">Diamante 4×14</a><a class="cal-ex-link" href="#plancha">Plancha 4×60s</a><a class="cal-ex-link" href="#mountain">Mountain 4×40s</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <div class="cal-cell"><div class="cal-num">16</div><span class="cal-block-label block-b">Bloque B</span><a class="cal-ex-link" href="#sentadilla">Sentadilla 4×22</a><a class="cal-ex-link" href="#zancadas">Zancadas 4×17</a><a class="cal-ex-link" href="#puente">Puente 4×22</a><a class="cal-ex-link" href="#sumo">Sumo 4×22</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×10s</a></div>
+  <div class="cal-cell"><div class="cal-num">17</div><span class="cal-block-label block-c">Bloque C</span><a class="cal-ex-link" href="#remo">Remo 4×14</a><a class="cal-ex-link" href="#superman">Superman 4×17</a><a class="cal-ex-link" href="#plancha-lateral">Plancha lat. 4×50s</a><a class="cal-ex-link" href="#bicicleta">Bicicleta 4×35</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <div class="cal-cell"><div class="cal-num">18</div><span class="cal-block-label block-hiit">HIIT</span><a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 40s</a><a class="cal-ex-link" href="#sentadilla-salto">Squat salto 40s</a><a class="cal-ex-link" href="#mountain">Mountain 40s</a><a class="cal-ex-link" href="#burpees">Burpees 40s</a><a class="cal-ex-link" href="#high-knees">High Knees 40s</a></div>
+  <div class="cal-cell"><div class="cal-num">19</div><span class="cal-block-label block-a">Bloque A</span><a class="cal-ex-link" href="#flexiones">Flexiones 4×17</a><a class="cal-ex-link" href="#dips">Dips 4×17</a><a class="cal-ex-link" href="#plancha">Plancha 4×60s</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <div class="cal-cell"><div class="cal-num">20</div><span class="cal-block-label block-b">Bloque B</span><a class="cal-ex-link" href="#sentadilla">Sentadilla 4×22</a><a class="cal-ex-link" href="#puente">Puente 4×22</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×10s</a></div>
+  <div class="cal-cell rest"><div class="cal-num">21</div><span class="cal-block-label block-rest">Descanso</span><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <!-- Semana 12 final -->
+  <div class="cal-cell"><div class="cal-num">22</div><span class="cal-block-label block-a">Bloque A</span><a class="cal-ex-link" href="#flexiones">Flexiones 4×20</a><a class="cal-ex-link" href="#dips">Dips 4×20</a><a class="cal-ex-link" href="#flex-diamante">Diamante 4×15</a><a class="cal-ex-link" href="#plancha">Plancha 4×60s</a><a class="cal-ex-link" href="#mountain">Mountain 4×40s</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <div class="cal-cell"><div class="cal-num">23</div><span class="cal-block-label block-b">Bloque B</span><a class="cal-ex-link" href="#sentadilla">Sentadilla 4×25</a><a class="cal-ex-link" href="#zancadas">Zancadas 4×18</a><a class="cal-ex-link" href="#puente">Puente 4×25</a><a class="cal-ex-link" href="#sumo">Sumo 4×25</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×10s</a></div>
+  <div class="cal-cell"><div class="cal-num">24</div><span class="cal-block-label block-c">Bloque C</span><a class="cal-ex-link" href="#remo">Remo 4×15</a><a class="cal-ex-link" href="#superman">Superman 4×18</a><a class="cal-ex-link" href="#plancha-lateral">Plancha lat. 4×50s</a><a class="cal-ex-link" href="#bicicleta">Bicicleta 4×40</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <div class="cal-cell"><div class="cal-num">25</div><span class="cal-block-label block-hiit">HIIT</span><a class="cal-ex-link" href="#jumping-jacks">Jumping Jacks 40s</a><a class="cal-ex-link" href="#sentadilla-salto">Squat salto 40s</a><a class="cal-ex-link" href="#mountain">Mountain 40s</a><a class="cal-ex-link" href="#burpees">Burpees 40s</a><a class="cal-ex-link" href="#high-knees">High Knees 40s</a></div>
+  <div class="cal-cell"><div class="cal-num">26</div><span class="cal-block-label block-a">Bloque A</span><a class="cal-ex-link" href="#flexiones">Flexiones 4×20</a><a class="cal-ex-link" href="#dips">Dips 4×20</a><a class="cal-ex-link" href="#plancha">Plancha 4×60s</a><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+  <div class="cal-cell"><div class="cal-num">27</div><span class="cal-block-label block-b">Bloque B</span><a class="cal-ex-link" href="#sentadilla">Sentadilla 4×25</a><a class="cal-ex-link" href="#puente">Puente 4×25</a><a class="cal-ex-link" href="#kegel">Kegel largo 3×10s</a></div>
+  <div class="cal-cell rest"><div class="cal-num">28</div><span class="cal-block-label block-rest">Descanso</span><div style="font-size:10px;color:#57606a;margin-top:4px;">🎉 ¡Fin del plan!</div><a class="cal-ex-link" href="#kegel">Kegel 3×20</a></div>
+</div>
+<div class="tip-box">🏆 <strong>¡Completaste los 3 meses!</strong> Medí tu peso, circunferencia y repeticiones máximas. Compará con el inicio. Para llegar a 15kg continuá el plan un mes más aumentando a 45 min/día.</div>
+</div>
+
+<!-- ESTRUCTURA SESIÓN -->
+<h2>⏱️ Estructura de cada sesión (30 min)</h2>
+<table>
+  <tr><th>Bloque</th><th>Duración</th><th>Qué hacer</th></tr>
+  <tr><td>🔥 Calentamiento</td><td>5–7 min</td><td>Movilidad articular, jumping jacks, rotaciones</td></tr>
+  <tr><td>💪 Entrenamiento</td><td>18–20 min</td><td>Ejercicios del día según calendario</td></tr>
+  <tr><td>🟣 Kegel/Pelvis</td><td>3 min</td><td>Siempre al final, todos los días</td></tr>
+  <tr><td>🧘 Estiramiento</td><td>2–3 min</td><td>Músculos trabajados del día</td></tr>
+</table>
+
+<!-- GUÍA DE EJERCICIOS -->
+<h2>📖 Guía de Ejercicios</h2>
+
+<div class="exercise-card" id="flexiones">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="48" cy="10" r="5" fill="#3b82d4"/><line x1="48" y1="15" x2="30" y2="25" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="25" x2="12" y2="25" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="25" x2="30" y2="40" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="40" x2="20" y2="50" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="40" x2="40" y2="50" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="48" y1="15" x2="54" y2="28" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="25" x2="6" y2="38" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Flexiones (Push-ups)</div><div class="exercise-target">Pecho · Hombros · Tríceps · Core</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Manos al ancho de hombros, dedos hacia adelante, cuerpo recto de cabeza a talones.</li>
+      <li>Abdomen contraído, caderas alineadas (no caer ni subir).</li>
+      <li>Bajá doblando codos a 45°, pecho casi toca el suelo.</li>
+      <li>Empujá hasta extender brazos completamente.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Si es difícil, apoyá las rodillas. Progresión: rodillas → normal → diamante → declinadas → arqueras.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="flex-diamante">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="48" cy="10" r="5" fill="#3b82d4"/><line x1="48" y1="15" x2="30" y2="25" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="25" x2="12" y2="25" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="25" x2="30" y2="40" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="40" x2="20" y2="50" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="40" x2="40" y2="50" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><polygon points="30,22 26,26 30,30 34,26" fill="none" stroke="#3b82d4" stroke-width="1.5"/></svg>
+    <div><div class="exercise-name">Flexiones Diamante</div><div class="exercise-target">Tríceps · Pecho interno · Core</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Igual que flexiones normales pero juntá pulgares e índices formando un diamante.</li>
+      <li>Manos debajo del pecho, codos hacia atrás al bajar.</li>
+      <li>Es más difícil que la flexión normal, enfoca el tríceps.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Si no podés con rodillas estiradas, apoyá las rodillas hasta ganar fuerza.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="dips">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><rect x="5" y="40" width="20" height="6" rx="2" fill="#e5e7eb"/><rect x="35" y="40" width="20" height="6" rx="2" fill="#e5e7eb"/><circle cx="30" cy="18" r="5" fill="#3b82d4"/><line x1="30" y1="23" x2="30" y2="36" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="15" y2="36" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="45" y2="36" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="36" x2="26" y2="48" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="36" x2="34" y2="48" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Dips en Silla</div><div class="exercise-target">Tríceps · Hombros · Pecho</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Sentate en el borde de una silla sólida, manos agarrando el borde a los costados.</li>
+      <li>Deslizá el cuerpo hacia adelante, pies apoyados en el suelo.</li>
+      <li>Bajá doblando los codos hasta que formen 90°.</li>
+      <li>Empujá hacia arriba hasta estirar los brazos.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Cuanto más lejos estén los pies, más difícil. Progresión: pies cerca → pies lejos → pies elevados.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="sentadilla">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="8" r="5" fill="#7c5cd8"/><line x1="30" y1="13" x2="30" y2="28" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="20" x2="18" y2="28" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="20" x2="42" y2="28" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="22" y2="42" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="38" y2="42" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="22" y1="42" x2="20" y2="52" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="38" y1="42" x2="40" y2="52" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Sentadilla (Squat)</div><div class="exercise-target">Cuádriceps · Glúteos · Isquiotibiales · Pelvis</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Pies al ancho de hombros, puntas levemente hacia afuera.</li>
+      <li>Brazos al frente, pecho arriba, espalda recta.</li>
+      <li>Bajá como si fueras a sentarte, rodillas siguiendo los pies.</li>
+      <li>Muslos paralelos al suelo, empujá desde los talones para subir.</li>
+      <li>Apretá glúteos al llegar arriba.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Las rodillas NO caen hacia adentro. Progresión: normal → sumo → con salto → pistol squat.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="sumo">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="8" r="5" fill="#7c5cd8"/><line x1="30" y1="13" x2="30" y2="26" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="20" x2="16" y2="26" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="20" x2="44" y2="26" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="26" x2="18" y2="44" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="26" x2="42" y2="44" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="18" y1="44" x2="12" y2="52" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="42" y1="44" x2="48" y2="52" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Sentadilla Sumo</div><div class="exercise-target">Glúteos · Aductores · Suelo pélvico · Cadera</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Pies más separados que los hombros, puntas bien hacia afuera (45°).</li>
+      <li>Bajá manteniendo la espalda recta y el pecho arriba.</li>
+      <li>Las rodillas siguen la dirección de los pies (hacia afuera).</li>
+      <li>Apretá el suelo pélvico y los glúteos al subir.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Activa más la zona interna del muslo y el suelo pélvico que la sentadilla normal.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="zancadas">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="38" cy="8" r="5" fill="#7c5cd8"/><line x1="38" y1="13" x2="38" y2="26" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="38" y1="20" x2="26" y2="26" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="38" y1="20" x2="48" y2="26" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="38" y1="26" x2="20" y2="44" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="38" y1="26" x2="46" y2="44" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="20" y1="44" x2="16" y2="52" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/><line x1="46" y1="44" x2="50" y2="52" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Zancadas (Lunges)</div><div class="exercise-target">Cuádriceps · Glúteos · Equilibrio · Core</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>De pie, dá un paso largo hacia adelante con una pierna.</li>
+      <li>Bajá la rodilla trasera hacia el suelo sin tocar.</li>
+      <li>La rodilla delantera no debe pasar la punta del pie.</li>
+      <li>Empujá hacia arriba y volvé al inicio. Alternás piernas.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Mirá siempre al frente, torso recto. Progresión: normal → inversa → caminando.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="puente">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="50" cy="22" r="5" fill="#dc2626"/><line x1="50" y1="27" x2="38" y2="32" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="38" y1="32" x2="24" y2="22" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="24" y1="22" x2="12" y2="38" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="38" y1="32" x2="44" y2="44" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="44" y1="44" x2="48" y2="44" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="38" x2="10" y2="44" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Puente de Glúteos (Glute Bridge)</div><div class="exercise-target">Glúteos · Suelo pélvico · Isquiotibiales · Lumbar</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Boca arriba, rodillas dobladas, pies al ancho de caderas.</li>
+      <li>Brazos a los costados, palmas hacia abajo.</li>
+      <li>Contraé abdomen y suelo pélvico (como cortar el flujo de orina).</li>
+      <li>Empujá caderas hacia arriba formando línea recta hombro-rodilla.</li>
+      <li>Apretá glúteos 2 segundos arriba, bajá lento.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Este ejercicio activa directamente el suelo pélvico. Progresión: normal → una pierna → talones elevados.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="remo">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="40" r="5" fill="#3b82d4"/><line x1="30" y1="35" x2="30" y2="22" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="18" y2="20" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="42" y2="20" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="18" y1="20" x2="14" y2="12" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="42" y1="20" x2="46" y2="12" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="35" x2="22" y2="48" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="35" x2="38" y2="48" stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/><line x1="8" y1="10" x2="52" y2="10" stroke="#e5e7eb" stroke-width="2"/></svg>
+    <div><div class="exercise-name">Remo Australiano</div><div class="exercise-target">Espalda · Bíceps · Core · Postura</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Acostarte debajo de una mesa sólida, agarrá el borde con ambas manos.</li>
+      <li>Cuerpo recto, talones en el suelo, brazos extendidos.</li>
+      <li>Tirá del pecho hacia la mesa doblando codos hacia atrás.</li>
+      <li>Apretá los omóplatos arriba, bajá en 3 segundos.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Más horizontal = más difícil. Progresión: mesa → pies elevados → dominadas con ayuda → dominadas.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="plancha">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="50" cy="14" r="5" fill="#16a34a"/><line x1="50" y1="19" x2="10" y2="30" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/><line x1="42" y1="21" x2="46" y2="32" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="30" x2="14" y2="40" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Plancha (Plank)</div><div class="exercise-target">Core · Abdominales · Lumbar · Pelvis · Hombros</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Apoyate en antebrazos y puntas de los pies.</li>
+      <li>Cuerpo completamente recto, mirar al suelo.</li>
+      <li>Abdomen contraído, glúteos apretados.</li>
+      <li>Respirá normalmente todo el tiempo que mantengas.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Progresión: en rodillas → normal → con elevación de pierna → plancha lateral.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="plancha-lateral">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="50" cy="20" r="5" fill="#16a34a"/><line x1="50" y1="25" x2="10" y2="38" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="38" x2="10" y2="50" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/><line x1="32" y1="32" x2="36" y2="20" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Plancha Lateral</div><div class="exercise-target">Core lateral · Oblicuos · Cadera · Pelvis</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Acostarte de lado, apoyate en un antebrazo y el costado del pie.</li>
+      <li>Cuerpo recto de cabeza a pies, cadera levantada.</li>
+      <li>Mantené el tiempo indicado. Cambiá de lado.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Progresión: con rodilla apoyada → normal → con elevación de pierna.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="superman">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="10" cy="28" r="5" fill="#16a34a"/><line x1="10" y1="33" x2="50" y2="30" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/><line x1="20" y1="26" x2="24" y2="16" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/><line x1="40" y1="29" x2="44" y2="40" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Superman</div><div class="exercise-target">Lumbar · Glúteos · Espalda alta · Postura</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Acostarte boca abajo, brazos extendidos al frente.</li>
+      <li>Levantá simultáneamente brazos, pecho y piernas del suelo.</li>
+      <li>Mantené 2–3 segundos arriba apretando glúteos y espalda.</li>
+      <li>Bajá lento y repetí.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 No fuerces el cuello. La mirada va hacia abajo en todo momento.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="bicicleta">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="40" r="5" fill="#16a34a"/><line x1="30" y1="35" x2="30" y2="24" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="18" y2="22" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="42" y2="22" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="35" x2="18" y2="46" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="35" x2="44" y2="42" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Crunches Bicicleta</div><div class="exercise-target">Abdominales · Oblicuos · Core rotacional</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Acostarte boca arriba, manos detrás de la cabeza (sin jalar el cuello).</li>
+      <li>Levantá los hombros del suelo, llevá codo derecho hacia rodilla izquierda.</li>
+      <li>Simultáneamente extendé la pierna derecha.</li>
+      <li>Alternás lados en movimiento continuo de pedaleo.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Lento y controlado es mejor que rápido. Sentís el trabajo en los costados del abdomen.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="kegel">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="18" stroke="#7c5cd8" stroke-width="2" fill="none"/><circle cx="30" cy="30" r="10" stroke="#7c5cd8" stroke-width="2" fill="none" stroke-dasharray="4 3"/><circle cx="30" cy="30" r="4" fill="#7c5cd8"/><line x1="30" y1="12" x2="30" y2="8" stroke="#7c5cd8" stroke-width="2"/><line x1="30" y1="48" x2="30" y2="52" stroke="#7c5cd8" stroke-width="2"/><line x1="12" y1="30" x2="8" y2="30" stroke="#7c5cd8" stroke-width="2"/><line x1="48" y1="30" x2="52" y2="30" stroke="#7c5cd8" stroke-width="2"/></svg>
+    <div><div class="exercise-name">Kegel — Suelo Pélvico</div><div class="exercise-target">Suelo pélvico · Core profundo · Pelvis · Todos los días</div></div>
+  </div>
+  <div class="exercise-body">
+
+    <div class="warning" style="margin-top:0;">
+      ⚠️ <strong>El Kegel NO es un movimiento visible del cuerpo.</strong> No movés piernas, no te acostás en ninguna posición especial, no abrís las piernas. El cuerpo queda completamente quieto. Solo trabajás un músculo interno.
+    </div>
+
+    <h4 style="margin:10px 0 6px;font-size:12px;color:#7c5cd8;text-transform:uppercase;letter-spacing:.05em;">Paso 1 — Encontrá el músculo (hacé esto solo la primera vez)</h4>
+    <ol class="exercise-steps">
+      <li>La próxima vez que vayas al baño, cuando estés orinando, intentá <strong>cortar el chorro a la mitad</strong> por 1 segundo y soltá.</li>
+      <li>Los músculos que usaste para eso son exactamente los del suelo pélvico.</li>
+      <li><strong>No repitas este test mientras orinás</strong> — solo sirve para identificar el músculo, no como ejercicio habitual.</li>
+    </ol>
+
+    <h4 style="margin:12px 0 6px;font-size:12px;color:#7c5cd8;text-transform:uppercase;letter-spacing:.05em;">Paso 2 — Posición para hacer los Kegel</h4>
+    <ol class="exercise-steps">
+      <li>Sentate en una silla con los pies apoyados en el piso, espalda recta. Es la posición más fácil para empezar.</li>
+      <li>Alternativamente: acostado boca arriba con rodillas dobladas, o de pie. Las tres posiciones son válidas.</li>
+      <li>Chequeá que <strong>glúteos, abdomen y muslos estén completamente relajados</strong>. Si apretás esas zonas, el ejercicio no funciona.</li>
+      <li>Respirá normal — ni apnea, ni respiración exagerada.</li>
+    </ol>
+
+    <div style="margin:14px 0 6px;padding:8px 10px;background:#f5f3ff;border-left:3px solid #7c5cd8;border-radius:0 4px 4px 0;">
+      <strong style="font-size:13px;color:#6d28d9;">🔵 Kegel corto — pulsaciones rápidas</strong>
+      <div style="font-size:12px;color:#4c1d95;margin-top:4px;">En el calendario: <code>Kegel 3×10</code> · <code>3×15</code> · <code>3×20</code></div>
+    </div>
+    <ol class="exercise-steps">
+      <li>Apretá ese músculo interno (como si cortaras el chorro) durante <strong>1 segundo</strong>.</li>
+      <li>Soltá completamente durante <strong>1 segundo</strong>.</li>
+      <li>Repetí ese ciclo apretado/suelto la cantidad de veces del calendario: 10 en Mes 1, 15 en Mes 2, 20 en Mes 3.</li>
+      <li>Eso es 1 serie. Descansá 20–30 segundos y hacé las 3 series.</li>
+      <li>Totales por sesión: Mes 1 = 30 contracciones · Mes 2 = 45 · Mes 3 = 60.</li>
+    </ol>
+
+    <div style="margin:14px 0 6px;padding:8px 10px;background:#f5f3ff;border-left:3px solid #7c5cd8;border-radius:0 4px 4px 0;">
+      <strong style="font-size:13px;color:#6d28d9;">🟣 Kegel largo — contracción sostenida</strong>
+      <div style="font-size:12px;color:#4c1d95;margin-top:4px;">En el calendario: <code>Kegel largo 3×5s</code> · <code>3×6s</code> · <code>3×7s</code> · <code>3×8s</code> · <code>3×10s</code></div>
+    </div>
+    <ol class="exercise-steps">
+      <li>Apretá el músculo interno lentamente, como si lo "subieras" de nivel en nivel.</li>
+      <li>Mantené esa contracción el tiempo indicado en el calendario (arrancás con 5 s, llegás a 10 s).</li>
+      <li>Soltá <em>muy despacio</em>, en el mismo tiempo que mantuviste — no lo sueltes de golpe.</li>
+      <li>Eso es 1 repetición. Descansá 30 segundos y hacé las 3 series completas.</li>
+      <li><strong>Progresión:</strong> Sem. 1–2 = 5 s · Sem. 3 = 6 s · Sem. 4 = 7 s · Mes 2 = 8 s · Mes 3 = 10 s.</li>
+    </ol>
+
+    <div style="margin:12px 0 4px;font-size:12px;color:#57606a;font-weight:600;">📅 ¿Cuándo aparece cada variante?</div>
+    <table style="font-size:12px;margin-top:4px;">
+      <tr><th>Bloque del día</th><th>Variante</th><th>Momento</th></tr>
+      <tr><td>Bloque A</td><td>Kegel corto</td><td>Al final, antes de estirar</td></tr>
+      <tr><td>Bloque B</td><td>Kegel largo</td><td>Al final, antes de estirar</td></tr>
+      <tr><td>Bloque C</td><td>Kegel corto</td><td>Al final, antes de estirar</td></tr>
+      <tr><td>Días de descanso</td><td>Kegel corto</td><td>Cualquier momento del día</td></tr>
+    </table>
+
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Hacelo <strong>todos los días sin excepción</strong>. Nadie sabe que lo estás haciendo — podés hacerlo en el colectivo, en la oficina, mirando TV. Los resultados tardan 6–8 semanas en notarse pero son permanentes.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="mountain">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="48" cy="12" r="5" fill="#d97706"/><line x1="48" y1="17" x2="30" y2="24" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="24" x2="10" y2="24" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="36" y1="22" x2="40" y2="34" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="24" x2="24" y2="36" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="24" y1="36" x2="20" y2="46" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="48" y1="17" x2="52" y2="28" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="24" x2="8" y2="34" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Mountain Climbers (Escaladores)</div><div class="exercise-target">Core · Cardio · Cadera · Quema grasa</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Posición de plancha alta, manos bajo los hombros.</li>
+      <li>Llevá rodilla derecha al pecho, volvé, luego rodilla izquierda.</li>
+      <li>Alternás rápido como corriendo en el lugar.</li>
+      <li>Caderas niveladas, no las levantes.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Velocidad alta = más cardio. Velocidad lenta = más core.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="jumping-jacks">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="8" r="5" fill="#d97706"/><line x1="30" y1="13" x2="30" y2="30" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="20" x2="50" y2="20" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="30" x2="14" y2="50" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="30" x2="46" y2="50" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Jumping Jacks</div><div class="exercise-target">Calentamiento · Cardio · Coordinación · Full body</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>De pie, pies juntos, brazos a los costados.</li>
+      <li>Saltá abriendo pies y llevando brazos sobre la cabeza simultáneamente.</li>
+      <li>Saltá nuevamente volviendo a la posición inicial.</li>
+      <li>Ritmo constante, aterrizá suave en puntas de pies.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Ideal para calentamiento. Si hay problemas de rodilla, hacelo sin salto (stepping jack).</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="burpees">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="6" r="4" fill="#dc2626"/><line x1="30" y1="10" x2="30" y2="22" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="16" x2="20" y2="22" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="16" x2="40" y2="22" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="22" x2="24" y2="34" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="22" x2="36" y2="34" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="24" y1="34" x2="22" y2="46" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="36" y1="34" x2="38" y2="46" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><path d="M 26 4 Q 30 0 34 4" stroke="#dc2626" stroke-width="1.5" fill="none"/></svg>
+    <div><div class="exercise-name">Burpees</div><div class="exercise-target">Cuerpo completo · Cardio máximo · Quema grasa</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>De pie, bajá en cuclillas y apoyá manos en el suelo.</li>
+      <li>Lanzá pies hacia atrás hasta posición de plancha.</li>
+      <li>Hacé una flexión (opcional mes 1).</li>
+      <li>Volvé a cuclillas de un salto.</li>
+      <li>Saltá hacia arriba con brazos extendidos.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Mayor quemador de calorías en calistenia. Mes 1: sin salto. Nunca sacrifiques técnica por velocidad.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="sentadilla-salto">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="6" r="5" fill="#dc2626"/><line x1="30" y1="11" x2="30" y2="24" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="18" x2="20" y2="24" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="18" x2="40" y2="24" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="24" x2="22" y2="38" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="24" x2="38" y2="38" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="22" y1="38" x2="20" y2="50" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><line x1="38" y1="38" x2="40" y2="50" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round"/><path d="M 26 4 Q 30 0 34 4" stroke="#dc2626" stroke-width="1.5" fill="none"/></svg>
+    <div><div class="exercise-name">Sentadilla con Salto</div><div class="exercise-target">Piernas · Glúteos · Cardio · Explosividad</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Posición de sentadilla normal.</li>
+      <li>Bajá hasta paralelo y explotá hacia arriba saltando.</li>
+      <li>Aterrizá suave con rodillas ligeramente flexionadas.</li>
+      <li>Inmediatamente bajá a la siguiente repetición.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Aterrizá siempre en puntas de pie primero para proteger las rodillas.</div>
+  </div>
+</div>
+
+<div class="exercise-card" id="high-knees">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="8" r="5" fill="#d97706"/><line x1="30" y1="13" x2="30" y2="28" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="20" x2="20" y2="26" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="20" x2="40" y2="26" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="38" y2="20" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="24" y2="44" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="24" y1="44" x2="22" y2="54" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">High Knees (Rodillas Altas)</div><div class="exercise-target">Cardio · Cadera · Core · Coordinación</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>De pie, corrés en el lugar levantando las rodillas al nivel de la cadera.</li>
+      <li>Brazos acompañan el movimiento como al correr.</li>
+      <li>Mantenés ritmo rápido y constante.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+    <div class="tips">💡 Ideal para elevar el ritmo cardíaco sin desplazarte. Perfecto para espacios pequeños.</div>
+  </div>
+</div>
+
+<!-- ESTIRAMIENTOS -->
+<h2>🧘 Guía de Estiramientos</h2>
+<p style="font-size:13px;color:#57606a;margin-bottom:12px;">Siempre al final de cada sesión. Mantené cada estiramiento 20–30 segundos sin rebotar.</p>
+
+<div class="exercise-card" id="est-pecho">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="16" r="5" fill="#57606a"/><line x1="30" y1="21" x2="30" y2="36" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><line x1="8" y1="26" x2="52" y2="26" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="36" x2="22" y2="50" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="36" x2="38" y2="50" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Estiramiento de Pecho y Hombros</div><div class="exercise-target">Después de: Bloque A</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>De pie o sentado, entrelazá los dedos detrás de la espalda.</li>
+      <li>Abrí el pecho y llevá los brazos hacia atrás y arriba.</li>
+      <li>Mantené 25 segundos respirando profundo.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+  </div>
+</div>
+
+<div class="exercise-card" id="est-triceps">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="16" r="5" fill="#57606a"/><line x1="30" y1="21" x2="30" y2="36" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="24" x2="46" y2="20" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><path d="M 46 20 Q 50 10 40 14" stroke="#57606a" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="30" y1="36" x2="22" y2="50" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="36" x2="38" y2="50" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Estiramiento de Tríceps</div><div class="exercise-target">Después de: Bloque A</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Levantá un brazo y doblalo detrás de la cabeza.</li>
+      <li>Con la mano contraria empujá el codo hacia abajo suavemente.</li>
+      <li>25 segundos cada lado.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+  </div>
+</div>
+
+<div class="exercise-card" id="est-cuad">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="12" r="5" fill="#57606a"/><line x1="30" y1="17" x2="30" y2="32" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="24" x2="20" y2="30" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="32" x2="22" y2="44" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><path d="M 22 44 Q 30 52 38 44" stroke="#57606a" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="30" y1="32" x2="38" y2="44" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Estiramiento de Cuádriceps</div><div class="exercise-target">Después de: Bloque B</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>De pie, doblá una rodilla y agarrá el pie con la mano del mismo lado.</li>
+      <li>Llevá el talón hacia el glúteo, rodillas juntas.</li>
+      <li>Apoyate en una pared si perdés equilibrio. 25 seg cada lado.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+  </div>
+</div>
+
+<div class="exercise-card" id="est-gluteo">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="5" fill="#57606a"/><line x1="30" y1="19" x2="30" y2="30" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="24" x2="20" y2="28" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><path d="M 30 30 Q 20 42 16 50" stroke="#57606a" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M 30 30 Q 40 36 38 50" stroke="#57606a" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Estiramiento de Glúteo y Cadera</div><div class="exercise-target">Después de: Bloque B</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Boca arriba, doblá la rodilla derecha y apoyá el tobillo sobre la rodilla izquierda.</li>
+      <li>Agarrá el muslo izquierdo y tiralo hacia el pecho.</li>
+      <li>Sentís el estiramiento en el glúteo derecho. 25 seg cada lado.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+  </div>
+</div>
+
+<div class="exercise-card" id="est-espalda">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="5" fill="#57606a"/><path d="M 30 19 Q 10 30 14 46" stroke="#57606a" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M 30 19 Q 50 30 46 46" stroke="#57606a" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Estiramiento de Espalda</div><div class="exercise-target">Después de: Bloque C</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>De pie, entrelazá los dedos y extendé los brazos al frente.</li>
+      <li>Empujá las manos hacia adelante redondeando la espalda.</li>
+      <li>Sentís el estiramiento entre los omóplatos. 25 segundos.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+  </div>
+</div>
+
+<div class="exercise-card" id="est-lumbar">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="24" r="5" fill="#57606a"/><path d="M 30 29 Q 30 44 30 50" stroke="#57606a" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M 14 50 Q 30 38 46 50" stroke="#57606a" stroke-width="2.5" fill="none" stroke-linecap="round"/><line x1="20" y1="22" x2="40" y2="22" stroke="#57606a" stroke-width="2" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Estiramiento Lumbar (Child's Pose)</div><div class="exercise-target">Después de: cualquier sesión</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Arrodillate y sentate sobre los talones.</li>
+      <li>Extendé los brazos hacia adelante en el suelo, frente apoyada.</li>
+      <li>Respirá profundo y soltá la tensión de la espalda baja. 30 segundos.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+  </div>
+</div>
+
+<div class="exercise-card" id="est-full">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="10" r="5" fill="#57606a"/><line x1="30" y1="15" x2="30" y2="28" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="22" x2="50" y2="22" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="20" y2="44" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="40" y2="44" stroke="#57606a" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Estiramiento Full Body</div><div class="exercise-target">Después de: sesión HIIT</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Cuádriceps: 25 seg cada lado.</li>
+      <li>Isquiotibiales: sentado, piernas estiradas, inclinate hacia adelante. 25 seg.</li>
+      <li>Pecho: entrelazá dedos atrás y abrí. 25 seg.</li>
+      <li>Child's pose (lumbar): 30 seg.</li>
+      <li>Rotación de cuello suave: 10 seg cada lado.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+  </div>
+</div>
+
+<div class="exercise-card" id="rotacion-hombros">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="18" r="5" fill="#d97706"/><line x1="30" y1="23" x2="30" y2="36" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><path d="M 18 24 Q 10 18 18 12 Q 26 6 30 12" stroke="#d97706" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M 42 24 Q 50 18 42 12 Q 34 6 30 12" stroke="#d97706" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Rotación de Hombros</div><div class="exercise-target">Calentamiento · Movilidad hombros y cuello</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>De pie, brazos a los costados.</li>
+      <li>Rotá ambos hombros hacia adelante 10 veces, luego hacia atrás 10 veces.</li>
+      <li>Movimiento amplio y controlado.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+  </div>
+</div>
+
+<div class="exercise-card" id="rotacion-cadera">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="5" fill="#d97706"/><line x1="30" y1="19" x2="30" y2="32" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><path d="M 30 32 Q 44 38 44 50 Q 30 44 16 50 Q 16 38 30 32" stroke="#d97706" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Rotación de Cadera</div><div class="exercise-target">Calentamiento · Movilidad cadera y pelvis</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>De pie, manos en las caderas.</li>
+      <li>Rotá las caderas en círculos amplios, 10 veces hacia cada lado.</li>
+      <li>Como si usaras un hula-hoop.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+  </div>
+</div>
+
+<div class="exercise-card" id="cat-cow">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><path d="M 10 30 Q 20 20 30 30 Q 40 40 50 30" stroke="#d97706" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="10" cy="30" r="3" fill="#d97706"/><circle cx="50" cy="30" r="3" fill="#d97706"/></svg>
+    <div><div class="exercise-name">Cat-Cow (Gato-Vaca)</div><div class="exercise-target">Calentamiento · Movilidad lumbar y dorsal</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>En cuatro apoyos (manos y rodillas), espalda neutral.</li>
+      <li><strong>Vaca:</strong> Inspirá, hundí el abdomen, levantá cabeza y coxis.</li>
+      <li><strong>Gato:</strong> Exhalá, arqueá la espalda hacia arriba, cabeza abajo.</li>
+      <li>Alternás lento 10 veces siguiendo la respiración.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+  </div>
+</div>
+
+<div class="exercise-card" id="sentadilla-parcial">
+  <div class="exercise-header">
+    <svg class="exercise-icon" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="10" r="5" fill="#d97706"/><line x1="30" y1="15" x2="30" y2="28" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="22" x2="20" y2="28" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="22" x2="40" y2="28" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="24" y2="38" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="28" x2="36" y2="38" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="24" y1="38" x2="22" y2="48" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/><line x1="36" y1="38" x2="38" y2="48" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div><div class="exercise-name">Sentadilla Parcial de Calentamiento</div><div class="exercise-target">Calentamiento · Activación de piernas y cadera</div></div>
+  </div>
+  <div class="exercise-body">
+    <ol class="exercise-steps">
+      <li>Igual que la sentadilla normal pero bajando solo al 50%.</li>
+      <li>Ritmo lento y controlado, 10–15 repeticiones.</li>
+      <li>Objetivo: activar rodilla y cadera sin fatigar.</li>
+    </ol>
+    <a class="btn-back" href="#calendario">← Volver al calendario</a>
+  </div>
+</div>
+
+<!-- NUTRICIÓN -->
+<h2>🥗 Nutrición Básica</h2>
+<table>
+  <tr><th>Principio</th><th>Qué hacer</th></tr>
+  <tr><td>Déficit calórico</td><td>300–500 kcal menos de lo que gastás por día</td></tr>
+  <tr><td>Proteína</td><td>1.5–2g por kg de peso corporal/día</td></tr>
+  <tr><td>Agua</td><td>Mínimo 2.5 litros diarios</td></tr>
+  <tr><td>Pre-entreno</td><td>Fruta + proteína liviana, 1h antes</td></tr>
+  <tr><td>Post-entreno nocturno</td><td>Yogur griego, huevos o pechuga + ensalada liviana</td></tr>
+  <tr><td>Evitar</td><td>Azúcar, ultraprocesados, alcohol en exceso</td></tr>
+</table>
+
+<h2>📊 Seguimiento de Progreso</h2>
+<table>
+  <tr><th>Métrica</th><th>Frecuencia</th></tr>
+  <tr><td>Peso corporal</td><td>1 vez por semana, mañana en ayunas</td></tr>
+  <tr><td>Circunferencia cintura</td><td>Cada 2 semanas</td></tr>
+  <tr><td>Foto de progreso</td><td>Inicio de cada mes</td></tr>
+  <tr><td>Récord de repeticiones</td><td>Cada semana</td></tr>
+</table>
+
+<div class="tip-box" style="margin-top:16px;">
+  🏆 <strong>Resultado esperado a los 3 meses:</strong> 4–8 kg menos, core y suelo pélvico notablemente más fuertes, mejor postura y resistencia. Para llegar a 15 kg continuá el plan un mes adicional aumentando a 45 min/día.
+</div>
+
+<footer><p>Made with IBM Bob</p></footer>
+</div><!-- /section-rutina -->
+
+<!-- SECCIÓN ANALIZAR VIDEO -->
+<div id="section-analizar" class="app-section">
+  <h1>🎥 Analizar mi Forma</h1>
+  <p class="subtitle">Subí un video corto y Gemini analiza tu técnica</p>
+
+  <div class="info-box" style="margin-bottom:16px;">
+    <strong>⚙️ Configuración única:</strong> necesitás una API key de Gemini gratuita.<br>
+    <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" style="color:#1e40af;">Obtener API key gratis en Google AI Studio →</a>
+  </div>
+
+  <div style="margin-bottom:14px;">
+    <label style="font-size:13px;font-weight:600;display:block;margin-bottom:4px;">API Key de Gemini</label>
+    <div style="display:flex;gap:6px;">
+      <input type="password" id="gemini-key-input" placeholder="AIza..." style="flex:1;border:1px solid #e5e7eb;border-radius:6px;padding:7px 10px;font-size:13px;font-family:inherit;">
+      <button onclick="guardarApiKey()" style="padding:7px 14px;background:#3b82d4;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;">Guardar</button>
+    </div>
+    <p id="key-status" style="font-size:11px;color:#57606a;margin-top:4px;"></p>
+  </div>
+
+  <div style="margin-bottom:12px;">
+    <label style="font-size:13px;font-weight:600;display:block;margin-bottom:4px;">Ejercicio</label>
+    <select id="analizar-ejercicio" style="width:100%;border:1px solid #e5e7eb;border-radius:6px;padding:7px 10px;font-size:13px;font-family:inherit;background:#fff;">
+      <option value="flexiones">Flexiones</option>
+      <option value="dips">Dips en silla</option>
+      <option value="flex-diamante">Flexiones diamante</option>
+      <option value="plancha">Plancha</option>
+      <option value="plancha-lateral">Plancha lateral</option>
+      <option value="mountain">Mountain Climbers</option>
+      <option value="sentadilla">Sentadilla</option>
+      <option value="sumo">Sentadilla sumo</option>
+      <option value="zancadas">Zancadas</option>
+      <option value="puente">Puente de glúteos</option>
+      <option value="remo">Remo australiano</option>
+      <option value="superman">Superman</option>
+      <option value="bicicleta">Crunches bicicleta</option>
+      <option value="burpees">Burpees</option>
+      <option value="sentadilla-salto">Sentadilla con salto</option>
+      <option value="high-knees">High Knees</option>
+    </select>
+  </div>
+
+  <div style="margin-bottom:14px;">
+    <label style="font-size:13px;font-weight:600;display:block;margin-bottom:4px;">Video del ejercicio</label>
+    <input type="file" id="video-input" accept="video/*" capture="camcorder"
+      style="display:block;font-size:13px;color:#57606a;margin-bottom:6px;">
+    <p style="font-size:11px;color:#57606a;">Recomendado: 5–15 segundos. Se analizan 4 fotogramas.</p>
+  </div>
+
+  <button id="btn-analizar" onclick="analizarVideo()"
+    style="width:100%;padding:12px;background:#3b82d4;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;margin-bottom:16px;">
+    🔍 Analizar mi técnica
+  </button>
+
+  <!-- Canvas oculto para extraer frames -->
+  <canvas id="frame-canvas" style="display:none;"></canvas>
+
+  <!-- Resultado -->
+  <div id="analizar-resultado" style="display:none;">
+    <div style="text-align:center;margin-bottom:12px;">
+      <span style="font-size:48px;font-weight:900;color:#3b82d4;" id="resultado-score">—</span>
+      <span style="font-size:20px;color:#57606a;">/10</span>
+      <p style="font-size:12px;color:#57606a;margin-top:2px;" id="resultado-nivel"></p>
+    </div>
+    <div class="info-box" id="resultado-texto" style="white-space:pre-wrap;font-size:13px;"></div>
+    <div id="resultado-nota-aviso" style="display:none;" class="warning" style="margin-top:10px;">
+      ⚠️ Puntuación baja — se guardó una nota automática en la tarjeta del ejercicio.
+    </div>
+  </div>
+
+  <div id="analizar-error" style="display:none;" class="warning"></div>
+  <div id="analizar-loading" style="display:none;text-align:center;padding:24px;color:#57606a;font-size:14px;">
+    ⏳ Analizando tu técnica con IA…
+  </div>
+</div>
+
+<!-- SECCIÓN COMIDAS (FASE 2) -->
+<div id="section-comidas" class="app-section">
+  <h1>🥗 Registro de Alimentos</h1>
+  <p class="subtitle">Controlá tus calorías consumidas y macros del día</p>
+
+  <!-- Resumen Calórico del Día -->
+  <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:14px 16px;margin-bottom:16px;text-align:center;">
+    <div style="font-size:11px;font-weight:700;color:#9a3412;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;">Total Ingerido Hoy</div>
+    <div style="font-size:42px;font-weight:900;color:#ea580c;line-height:1;" id="comidas-total-cal">0</div>
+    <div style="font-size:13px;color:#9a3412;">kcal consumidas</div>
+    <div style="margin-top:8px;font-size:12px;color:#7c2d12;display:flex;justify-content:space-around;border-top:1px dashed #fed7aa;padding-top:8px;">
+      <div>🍗 Prot: <strong id="comidas-total-prot">0</strong>g</div>
+      <div>🍞 Carbs: <strong id="comidas-total-carbs">0</strong>g</div>
+      <div>🥑 Grasas: <strong id="comidas-total-grasas">0</strong>g</div>
+    </div>
+  </div>
+
+  <!-- Balance Diario (Ingerido vs Quemado) -->
+  <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:12px 14px;margin-bottom:16px;text-align:center;">
+    <div style="font-size:12px;color:#1e40af;font-weight:600;margin-bottom:2px;">⚖️ Balance Calórico Neto Hoy</div>
+    <div style="font-size:18px;font-weight:800;" id="balance-neto-display">0 kcal</div>
+    <p style="font-size:11px;color:#57606a;margin-top:2px;">(Calorías consumidas − Quemadas en ejercicio y pasos)</p>
+  </div>
+
+  <!-- Formulario para agregar alimento -->
+  <div style="background:#f7f8fa;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;margin-bottom:16px;">
+    <h3 style="margin-bottom:10px;font-size:14px;">➕ Registrar Alimento o Comida</h3>
+    
+    <div style="margin-bottom:10px;">
+      <label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;">Carga rápida de frecuentes:</label>
+      <select id="comida-frecuente" onchange="seleccionarComidaFrecuente()" style="width:100%;border:1px solid #e5e7eb;border-radius:6px;padding:6px 8px;font-size:13px;font-family:inherit;background:#fff;">
+        <option value="">-- Seleccionar o escribir manual abajo --</option>
+        <option value="Huevo entero (1 u)|80|6|1|5">🥚 Huevo entero (1 u) — 80 kcal (6g prot)</option>
+        <option value="Clara de huevo (1 u)|17|4|0|0">🥚 Clara de huevo (1 u) — 17 kcal (4g prot)</option>
+        <option value="Pechuga de pollo (150g)|240|45|0|5">🍗 Pechuga de pollo (150g) — 240 kcal (45g prot)</option>
+        <option value="Carne magra / Bife (150g)|280|38|0|12">🥩 Carne magra (150g) — 280 kcal (38g prot)</option>
+        <option value="Atún al natural (1 lata 120g)|130|28|0|1">🐟 Atún al natural (1 lata) — 130 kcal (28g prot)</option>
+        <option value="Yogur griego natural (200g)|130|15|8|3">🥛 Yogur griego (200g) — 130 kcal (15g prot)</option>
+        <option value="Arroz blanco cocido (150g)|195|4|43|0">🍚 Arroz blanco cocido (150g) — 195 kcal</option>
+        <option value="Avena en hojuelas (50g)|190|7|33|3">🥣 Avena (50g) — 190 kcal (7g prot)</option>
+        <option value="Banana / Plátano mediano|105|1|27|0">🍌 Banana mediana — 105 kcal</option>
+        <option value="Manzana mediana|80|0|21|0">🍎 Manzana mediana — 80 kcal</option>
+        <option value="Palta / Aguacate (medio)|160|2|8|15">🥑 Media palta — 160 kcal (15g grasa sana)</option>
+        <option value="Frutos secos surtidos (30g)|185|5|6|16">🥜 Frutos secos (30g puñado) — 185 kcal</option>
+        <option value="Whey Protein (1 scoop 30g)|120|24|2|1">🥤 Whey Protein (1 scoop) — 120 kcal (24g prot)</option>
+        <option value="Ensalada mixta c/aceite oliva|120|2|6|10">🥗 Ensalada verde c/oliva — 120 kcal</option>
+      </select>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+      <input type="text" id="comida-nombre" placeholder="Nombre (ej: Pechuga con ensalada)" style="flex:2;min-width:180px;border:1px solid #e5e7eb;border-radius:6px;padding:7px 8px;font-size:13px;font-family:inherit;">
+      <input type="number" id="comida-calorias" placeholder="kcal *" min="0" max="3000" style="flex:1;min-width:70px;border:1px solid #e5e7eb;border-radius:6px;padding:7px 8px;font-size:13px;font-family:inherit;">
+    </div>
+
+    <div style="display:flex;gap:6px;margin-bottom:10px;">
+      <input type="number" id="comida-prot" placeholder="Prot (g)" min="0" style="flex:1;border:1px solid #e5e7eb;border-radius:6px;padding:6px 6px;font-size:12px;font-family:inherit;">
+      <input type="number" id="comida-carbs" placeholder="Carbs (g)" min="0" style="flex:1;border:1px solid #e5e7eb;border-radius:6px;padding:6px 6px;font-size:12px;font-family:inherit;">
+      <input type="number" id="comida-grasas" placeholder="Grasas (g)" min="0" style="flex:1;border:1px solid #e5e7eb;border-radius:6px;padding:6px 6px;font-size:12px;font-family:inherit;">
+    </div>
+
+    <button onclick="registrarAlimento()" style="width:100%;padding:9px;background:#ea580c;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;">
+      + Agregar Comida
+    </button>
+  </div>
+
+  <!-- Lista de Alimentos Ingeridos Hoy -->
+  <div style="margin-bottom:16px;">
+    <h3 style="font-size:14px;margin-bottom:8px;">🍽️ Comidas de Hoy</h3>
+    <div id="lista-comidas"></div>
+  </div>
+</div>
+
+<!-- SECCIÓN STATS -->
+<div id="section-stats" class="app-section">
+  <h1>🔥 Stats del Día</h1>
+  <p class="subtitle">Calorías quemadas, balance e historial</p>
+
+  <!-- Peso corporal -->
+  <div style="margin-bottom:16px;background:#f7f8fa;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;">
+    <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">⚖️ Mi peso corporal</label>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <input type="number" id="peso-input" placeholder="70" min="30" max="200"
+        style="width:90px;border:1px solid #e5e7eb;border-radius:6px;padding:7px 10px;font-size:14px;font-family:inherit;">
+      <span style="font-size:13px;color:#57606a;">kg</span>
+      <button onclick="guardarPeso()" style="padding:7px 14px;background:#3b82d4;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;">Guardar</button>
+    </div>
+    <p id="peso-status" style="font-size:11px;color:#57606a;margin-top:4px;"></p>
+  </div>
+
+  <!-- Total del día — destacado arriba -->
+  <div id="total-dia-box" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 16px;margin-bottom:16px;text-align:center;">
+    <div style="font-size:11px;font-weight:700;color:#57606a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;">Total quemado hoy</div>
+    <div style="font-size:42px;font-weight:900;color:#3b82d4;line-height:1;" id="total-cal-display">0</div>
+    <div style="font-size:13px;color:#57606a;">kcal</div>
+    <div style="margin-top:6px;font-size:12px;color:#57606a;">
+      🏋️ <span id="total-ejercicio-display">0</span> kcal ejercicio &nbsp;+&nbsp;
+      👣 <span id="total-pasos-cal-display">0</span> kcal pasos
+    </div>
+  </div>
+
+  <!-- Registrar ejercicio -->
+  <div style="background:#f7f8fa;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;margin-bottom:14px;">
+    <h3 style="margin-bottom:10px;font-size:14px;">🏋️ Registrar sesión de ejercicio</h3>
+    <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+      <select id="stats-ejercicio" style="flex:1;min-width:160px;border:1px solid #e5e7eb;border-radius:6px;padding:7px 8px;font-size:13px;font-family:inherit;background:#fff;">
+        <option value="flexiones">Flexiones</option>
+        <option value="dips">Dips</option>
+        <option value="flex-diamante">Flex. diamante</option>
+        <option value="plancha">Plancha</option>
+        <option value="plancha-lateral">Plancha lateral</option>
+        <option value="mountain">Mountain Climbers</option>
+        <option value="sentadilla">Sentadilla</option>
+        <option value="sumo">Sentadilla sumo</option>
+        <option value="zancadas">Zancadas</option>
+        <option value="puente">Puente glúteos</option>
+        <option value="remo">Remo australiano</option>
+        <option value="superman">Superman</option>
+        <option value="bicicleta">Crunches bicicleta</option>
+        <option value="jumping-jacks">Jumping Jacks</option>
+        <option value="burpees">Burpees</option>
+        <option value="sentadilla-salto">Squat con salto</option>
+        <option value="high-knees">High Knees</option>
+        <option value="kegel">Kegel</option>
+        <option value="estiramiento">Estiramiento</option>
+        <option value="hiit">Sesión HIIT completa</option>
+        <option value="caminata">Caminata</option>
+      </select>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" id="stats-minutos" placeholder="min" min="1" max="180"
+          style="width:68px;border:1px solid #e5e7eb;border-radius:6px;padding:7px 8px;font-size:14px;font-family:inherit;">
+        <span style="font-size:12px;color:#57606a;">min</span>
+      </div>
+    </div>
+    <button onclick="registrarSesion()" style="width:100%;padding:9px;background:#16a34a;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;">
+      + Registrar sesión
+    </button>
+  </div>
+
+  <!-- Lista de sesiones del día -->
+  <div id="lista-sesiones" style="margin-bottom:16px;"></div>
+
+  <!-- Contador de pasos -->
+  <div style="background:#f7f8fa;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;">
+    <h3 style="margin-bottom:8px;font-size:14px;">👣 Contador de pasos</h3>
+    <p style="font-size:12px;color:#57606a;margin-bottom:10px;">Usando el acelerómetro del celular. Funciona mientras la pantalla está activa.</p>
+    <div style="text-align:center;margin-bottom:12px;">
+      <div style="font-size:48px;font-weight:900;color:#7c5cd8;line-height:1;" id="pasos-display">0</div>
+      <div style="font-size:12px;color:#57606a;">pasos &nbsp;≈&nbsp; <span id="pasos-cal-display">0</span> kcal</div>
+    </div>
+    <div style="display:flex;gap:8px;justify-content:center;">
+      <button id="btn-iniciar-pasos" onclick="iniciarPasos()"
+        style="padding:10px 22px;background:#7c5cd8;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;">
+        ▶ Iniciar
+      </button>
+      <button id="btn-detener-pasos" onclick="detenerPasos()" style="display:none;"
+        style="padding:10px 22px;background:#e5e7eb;color:#57606a;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;">
+        ⏹ Detener
+      </button>
+      <button onclick="resetPasos()"
+        style="padding:10px 14px;background:#f7f8fa;color:#57606a;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;cursor:pointer;">
+        🔄 Resetear
+      </button>
+    </div>
+    <div id="pasos-error" style="display:none;margin-top:8px;" class="warning"></div>
+  </div>
+
+  <!-- Historial de días anteriores -->
+  <div style="margin-top:20px;">
+    <h3 style="font-size:14px;margin-bottom:8px;">📊 Historial de los últimos 7 días</h3>
+    <div id="historial-dias-container"></div>
+  </div>
+
+  <!-- Sincronización en la Nube (Firebase) -->
+  <div style="margin-top:24px;background:#f7f8fa;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
+    <h3 style="font-size:14px;margin-bottom:6px;display:flex;align-items:center;gap:6px;">
+      ☁️ Sincronización en Vivo (Web ↔ Celular)
+    </h3>
+    <p style="font-size:12px;color:#57606a;margin-bottom:10px;">
+      Sincronizá tus ejercicios, comidas y calorías en tiempo real entre tu PC y tu teléfono usando Firebase (gratuito y privado).
+    </p>
+
+    <div style="margin-bottom:10px;">
+      <label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;">Tu PIN / ID de Sincronización Secreto:</label>
+      <div style="display:flex;gap:6px;">
+        <input type="text" id="sync-user-id" placeholder="ej: mi-usuario-entreno" style="flex:1;border:1px solid #e5e7eb;border-radius:6px;padding:7px 8px;font-size:13px;font-family:inherit;">
+        <button onclick="guardarSyncUserId()" style="padding:7px 12px;background:#3b82d4;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;">Guardar</button>
+      </div>
+      <p id="sync-status" style="font-size:11px;color:#16a34a;margin-top:4px;"></p>
+    </div>
+
+    <!-- Toggle para ver config de Firebase -->
+    <details style="font-size:12px;color:#57606a;margin-top:10px;">
+      <summary style="cursor:pointer;font-weight:600;color:#3b82d4;">⚙️ Configurar credenciales de Firebase (opcional)</summary>
+      <div style="margin-top:8px;padding:8px;background:#fff;border:1px solid #e5e7eb;border-radius:6px;">
+        <p style="font-size:11px;margin-bottom:6px;">Pegá tu <code>firebaseConfig</code> (objeto JSON) aquí si tenés tu propio proyecto de Firebase:</p>
+        <textarea id="firebase-custom-config" placeholder='{"apiKey":"...","authDomain":"...","projectId":"...","storageBucket":"...","messagingSenderId":"...","appId":"..."}' style="width:100%;height:70px;border:1px solid #e5e7eb;border-radius:4px;padding:6px;font-size:11px;font-family:monospace;resize:vertical;"></textarea>
+        <button onclick="guardarFirebaseCustomConfig()" style="margin-top:4px;padding:5px 12px;background:#16a34a;color:#fff;border:none;border-radius:4px;font-size:11px;cursor:pointer;font-weight:600;">Guardar Configuración</button>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+</div><!-- /container -->
+
+<!-- BARRA DE NAVEGACIÓN INFERIOR -->
+<nav class="bottom-nav">
+  <a href="#" id="nav-rutina" class="active" onclick="showSection('rutina',this);return false;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Rutina
+  </a>
+  <a href="#" id="nav-comidas" onclick="showSection('comidas',this);return false;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+    Comidas
+  </a>
+  <a href="#" id="nav-analizar" onclick="showSection('analizar',this);return false;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+    Analizar
+  </a>
+  <a href="#" id="nav-stats" onclick="showSection('stats',this);return false;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    Stats
+  </a>
+</nav>
+
+<script>
+// ── URLs de YouTube por ejercicio ───────────────────────────────────────────
+var YT_LINKS = {
+  // Ejercicios de fuerza — tren superior
+  'flexiones':         'https://www.youtube.com/results?search_query=flexiones+correctas+paso+a+paso+calistenia+principiantes',
+  'dips':              'https://www.youtube.com/results?search_query=dips+en+silla+triceps+como+hacer+correctamente',
+  'flex-diamante':     'https://www.youtube.com/results?search_query=flexiones+diamante+triceps+tecnica+correcta+calistenia',
+  // Isometría — core y plancha
+  'plancha':           'https://www.youtube.com/results?search_query=plancha+abdominal+tecnica+correcta+errores+comunes',
+  'plancha-lateral':   'https://www.youtube.com/results?search_query=plancha+lateral+oblicuos+tecnica+paso+a+paso',
+  // Cardio — core dinámico
+  'mountain':          'https://www.youtube.com/results?search_query=mountain+climbers+escaladores+tecnica+correcta+core',
+  // Suelo pélvico
+  'kegel':             'https://www.youtube.com/results?search_query=ejercicios+kegel+suelo+pelvico+como+hacerlos+correctamente+hombres+mujeres',
+  // Tren inferior
+  'sentadilla':        'https://www.youtube.com/results?search_query=sentadilla+perfecta+sin+peso+tecnica+calistenia+principiantes',
+  'sumo':              'https://www.youtube.com/results?search_query=sentadilla+sumo+gluteos+aductores+tecnica+correcta',
+  'zancadas':          'https://www.youtube.com/results?search_query=zancadas+lunges+tecnica+correcta+rodilla+cadera',
+  'puente':            'https://www.youtube.com/results?search_query=puente+de+gluteos+glute+bridge+tecnica+activacion+gluteo',
+  // Espalda y core posterior
+  'remo':              'https://www.youtube.com/results?search_query=remo+australiano+bodyweight+row+debajo+mesa+tecnica',
+  'superman':          'https://www.youtube.com/results?search_query=superman+ejercicio+espalda+baja+lumbar+como+hacer',
+  // Core — abdominales
+  'bicicleta':         'https://www.youtube.com/results?search_query=crunch+bicicleta+abdominales+oblicuos+tecnica+correcta',
+  // HIIT — cardio
+  'jumping-jacks':     'https://www.youtube.com/results?search_query=jumping+jacks+como+hacer+correctamente+calentamiento+cardio',
+  'burpees':           'https://www.youtube.com/results?search_query=burpees+tecnica+correcta+paso+a+paso+principiantes',
+  'sentadilla-salto':  'https://www.youtube.com/results?search_query=sentadilla+con+salto+jump+squat+pliometria+tecnica',
+  'high-knees':        'https://www.youtube.com/results?search_query=high+knees+rodillas+al+pecho+corriendo+en+el+lugar+cardio',
+  // Calentamiento — movilidad
+  'rotacion-hombros':  'https://www.youtube.com/results?search_query=rotacion+de+hombros+movilidad+calentamiento+articulaciones',
+  'rotacion-cadera':   'https://www.youtube.com/results?search_query=rotacion+de+cadera+movilidad+calentamiento+hula+hoop',
+  'cat-cow':           'https://www.youtube.com/results?search_query=cat+cow+gato+vaca+movilidad+lumbar+columna+yoga',
+  'sentadilla-parcial':'https://www.youtube.com/results?search_query=sentadilla+parcial+calentamiento+activacion+piernas',
+  // Estiramientos
+  'est-pecho':         'https://www.youtube.com/results?search_query=estiramiento+pecho+hombros+post+entrenamiento+como+hacer',
+  'est-triceps':       'https://www.youtube.com/results?search_query=estiramiento+triceps+overhead+como+hacer+correctamente',
+  'est-cuad':          'https://www.youtube.com/results?search_query=estiramiento+cuadriceps+de+pie+pierna+doblada+como+hacer',
+  'est-gluteo':        'https://www.youtube.com/results?search_query=estiramiento+gluteo+figura+4+piriforme+tension',
+  'est-espalda':       'https://www.youtube.com/results?search_query=estiramiento+espalda+alta+omoplatos+redondear+columna',
+  'est-lumbar':        'https://www.youtube.com/results?search_query=child+pose+postura+del+nino+estiramiento+lumbar+yoga',
+  'est-full':          'https://www.youtube.com/results?search_query=rutina+estiramiento+full+body+post+entrenamiento+HIIT+completo'
+};
+
+// ── Sistema de Notas (localStorage) ─────────────────────────────────────────
+function getNota(id) {
+  var raw = localStorage.getItem('nota_' + id);
+  return raw ? JSON.parse(raw) : null;
+}
+function setNota(id, texto, fecha) {
+  localStorage.setItem('nota_' + id, JSON.stringify({texto: texto, fecha: fecha || new Date().toLocaleDateString('es-AR')}));
+  renderNotas();
+}
+function delNota(id) {
+  localStorage.removeItem('nota_' + id);
+  renderNotas();
+}
+function renderNotas() {
+  document.querySelectorAll('.exercise-card[id]').forEach(function(card) {
+    var id = card.id;
+    var body = card.querySelector('.exercise-body');
+    if (!body) return;
+
+    // Quitar elementos dinámicos previos
+    var prev = body.querySelector('.nota-box');
+    if (prev) prev.remove();
+    var prevEditor = body.querySelector('.nota-editor');
+    if (prevEditor) prevEditor.remove();
+    var prevBtn = body.querySelector('.btn-add-nota');
+    if (prevBtn) prevBtn.remove();
+
+    var nota = getNota(id);
+    var ytUrl = YT_LINKS[id];
+
+    // Insertar botón YouTube si existe y no está ya
+    if (ytUrl && !body.querySelector('.btn-yt')) {
+      var btnBack = body.querySelector('.btn-back');
+      var ytBtn = document.createElement('a');
+      ytBtn.className = 'btn-yt';
+      ytBtn.href = ytUrl;
+      ytBtn.target = '_blank';
+      ytBtn.rel = 'noopener';
+      ytBtn.textContent = '▶ Ver video';
+      if (btnBack) body.insertBefore(ytBtn, btnBack);
+      else body.appendChild(ytBtn);
+    }
+
+    // Mostrar nota si existe
+    if (nota) {
+      var box = document.createElement('div');
+      box.className = 'nota-box';
+      box.innerHTML =
+        '<div class="nota-header">' +
+          '<span class="nota-label">📝 Mi nota</span>' +
+          '<span>' +
+            '<span class="nota-fecha">' + nota.fecha + '</span>' +
+            '<button class="btn-del-nota" title="Borrar nota" onclick="delNota(\'' + id + '\')">🗑️</button>' +
+          '</span>' +
+        '</div>' +
+        '<div class="nota-texto">' + nota.texto.replace(/\n/g,'<br>') + '</div>' +
+        '<button class="btn-add-nota" onclick="abrirEditor(\'' + id + '\')">✏️ Editar nota</button>';
+      body.appendChild(box);
+    } else {
+      var addBtn = document.createElement('button');
+      addBtn.className = 'btn-add-nota';
+      addBtn.textContent = '✏️ Agregar nota';
+      addBtn.onclick = function(){ abrirEditor(id); };
+      body.appendChild(addBtn);
+    }
+  });
+}
+function abrirEditor(id) {
+  // Cerrar otros editores abiertos
+  document.querySelectorAll('.nota-editor').forEach(function(el){ el.remove(); });
+
+  var card = document.getElementById(id);
+  var body = card.querySelector('.exercise-body');
+  var nota = getNota(id);
+
+  var editor = document.createElement('div');
+  editor.className = 'nota-editor';
+  editor.innerHTML =
+    '<textarea placeholder="Escribí tu nota aquí...">' + (nota ? nota.texto : '') + '</textarea>' +
+    '<div class="nota-actions">' +
+      '<button class="btn-save-nota" onclick="guardarNotaEditor(\'' + id + '\')">Guardar</button>' +
+      '<button class="btn-cancel-nota" onclick="this.closest(\'.nota-editor\').remove()">Cancelar</button>' +
+    '</div>';
+  body.appendChild(editor);
+  editor.querySelector('textarea').focus();
+}
+function guardarNotaEditor(id) {
+  var card = document.getElementById(id);
+  var ta = card.querySelector('.nota-editor textarea');
+  var texto = ta ? ta.value.trim() : '';
+  if (texto) setNota(id, texto);
+  else delNota(id);
+}
+
+// ── Navegación entre secciones ──────────────────────────────────────────────
+function showSection(name, tab) {
+  document.querySelectorAll('.app-section').forEach(function(el){ el.classList.remove('active'); });
+  document.querySelectorAll('.bottom-nav a').forEach(function(el){ el.classList.remove('active'); });
+  document.getElementById('section-' + name).classList.add('active');
+  tab.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ── Gemini API key ───────────────────────────────────────────────────────────
+function guardarApiKey() {
+  var val = document.getElementById('gemini-key-input').value.trim();
+  if (!val) return;
+  localStorage.setItem('gemini_api_key', val);
+  document.getElementById('key-status').textContent = '✅ API key guardada.';
+  document.getElementById('gemini-key-input').value = '';
+}
+function getApiKey() {
+  return localStorage.getItem('gemini_api_key') || '';
+}
+
+// ── Extraer frames de un video ───────────────────────────────────────────────
+function extraerFrames(file, cantidad) {
+  return new Promise(function(resolve, reject) {
+    var url = URL.createObjectURL(file);
+    var video = document.createElement('video');
+    video.src = url;
+    video.muted = true;
+    video.playsInline = true;
+    var tiempos = [];
+    video.addEventListener('loadedmetadata', function() {
+      var duracion = video.duration;
+      for (var i = 0; i < cantidad; i++) {
+        tiempos.push((duracion / (cantidad + 1)) * (i + 1));
+      }
+      video.currentTime = tiempos[0];
+    });
+    var frames = [];
+    var canvas = document.getElementById('frame-canvas');
+    var ctx = canvas.getContext('2d');
+    video.addEventListener('seeked', function() {
+      canvas.width = Math.min(video.videoWidth, 640);
+      canvas.height = Math.round(canvas.width * (video.videoHeight / video.videoWidth));
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      frames.push(canvas.toDataURL('image/jpeg', 0.7).split(',')[1]);
+      if (frames.length < tiempos.length) {
+        video.currentTime = tiempos[frames.length];
+      } else {
+        URL.revokeObjectURL(url);
+        resolve(frames);
+      }
+    });
+    video.addEventListener('error', function(e) { URL.revokeObjectURL(url); reject(e); });
+    video.load();
+  });
+}
+
+// ── Llamada a Gemini Flash ────────────────────────────────────────────────────
+function analizarConGemini(frames, nombreEjercicio) {
+  var apiKey = getApiKey();
+  if (!apiKey) return Promise.reject(new Error('Falta la API key de Gemini. Guardala arriba.'));
+  var partes = [{
+    text: 'Analizá la técnica de ' + nombreEjercicio + ' en estas ' + frames.length + ' imágenes extraídas de un video.\n' +
+          'Respondé SIEMPRE en español con exactamente este formato:\n\n' +
+          'PUNTUACIÓN: X/10\n\n' +
+          'EVALUACIÓN: [una línea resumiendo]\n\n' +
+          'ERRORES DETECTADOS:\n- [error 1]\n- [error 2]\n\n' +
+          'QUÉ CORREGIR:\n- [corrección 1]\n- [corrección 2]\n\n' +
+          'Sé específico. Si no se ve bien el ejercicio, indicalo. Puntuación 10 = técnica perfecta, 1 = muy incorrecta.'
+  }];
+  frames.forEach(function(b64) {
+    partes.push({ inlineData: { mimeType: 'image/jpeg', data: b64 } });
+  });
+  return fetch(
+    'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + apiKey,
+    { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({contents:[{parts:partes}]}) }
+  ).then(function(res) {
+    if (!res.ok) return res.json().then(function(e){ throw new Error(e.error ? e.error.message : 'Error API ' + res.status); });
+    return res.json();
+  }).then(function(data) {
+    return data.candidates[0].content.parts[0].text;
+  });
+}
+
+// ── Flujo principal de análisis ───────────────────────────────────────────────
+function analizarVideo() {
+  var fileInput = document.getElementById('video-input');
+  var ejercicioId = document.getElementById('analizar-ejercicio').value;
+  var ejercicioNombre = document.getElementById('analizar-ejercicio').selectedOptions[0].text;
+  if (!fileInput.files || !fileInput.files[0]) { mostrarErrorAnalizar('Seleccioná un video primero.'); return; }
+  if (!getApiKey()) { mostrarErrorAnalizar('Guardá tu API key de Gemini antes de analizar.'); return; }
+
+  document.getElementById('analizar-resultado').style.display = 'none';
+  document.getElementById('analizar-error').style.display = 'none';
+  document.getElementById('analizar-loading').style.display = 'block';
+  document.getElementById('btn-analizar').disabled = true;
+
+  extraerFrames(fileInput.files[0], 4)
+    .then(function(frames) { return analizarConGemini(frames, ejercicioNombre); })
+    .then(function(respuesta) {
+      document.getElementById('analizar-loading').style.display = 'none';
+      document.getElementById('btn-analizar').disabled = false;
+      var matchScore = respuesta.match(/PUNTUACI[OÓ]N[:\s]+(\d+)/i);
+      var score = matchScore ? parseInt(matchScore[1]) : null;
+      document.getElementById('resultado-score').textContent = score !== null ? score : '?';
+      document.getElementById('resultado-score').style.color = score >= 7 ? '#16a34a' : score >= 5 ? '#d97706' : '#dc2626';
+      var nivel = score >= 8 ? '¡Excelente técnica!' : score >= 6 ? 'Buena técnica, hay margen de mejora' : score >= 4 ? 'Técnica aceptable — revisá los errores' : 'Técnica a mejorar — seguí las correcciones';
+      document.getElementById('resultado-nivel').textContent = nivel;
+      document.getElementById('resultado-texto').textContent = respuesta;
+      document.getElementById('analizar-resultado').style.display = 'block';
+      if (score !== null && score <= 6) {
+        var fechaHoy = new Date().toLocaleDateString('es-AR');
+        setNota(ejercicioId, '⚠️ Análisis IA (' + fechaHoy + ') — Puntuación: ' + score + '/10\n\n' + respuesta, fechaHoy);
+        document.getElementById('resultado-nota-aviso').style.display = 'block';
+      } else {
+        document.getElementById('resultado-nota-aviso').style.display = 'none';
+      }
+    })
+    .catch(function(err) {
+      document.getElementById('analizar-loading').style.display = 'none';
+      document.getElementById('btn-analizar').disabled = false;
+      mostrarErrorAnalizar('Error: ' + err.message);
+    });
+}
+function mostrarErrorAnalizar(msg) {
+  var el = document.getElementById('analizar-error');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+// ── Stats: MET por ejercicio ─────────────────────────────────────────────────
+var MET = {
+  flexiones:8, dips:8, 'flex-diamante':8, plancha:4, 'plancha-lateral':4,
+  mountain:8, sentadilla:5, sumo:5, zancadas:5, puente:3,
+  remo:5, superman:3.5, bicicleta:6, 'jumping-jacks':8,
+  burpees:10, 'sentadilla-salto':7, 'high-knees':8, kegel:1.5,
+  'kegel-largo':1.5, estiramiento:2.5, 'est-pecho':2.5, 'est-triceps':2.5,
+  'est-cuad':2.5, 'est-gluteo':2.5, 'est-espalda':2.5, 'est-lumbar':2.5, 'est-full':2.5,
+  'rotacion-hombros':2.5, 'rotacion-cadera':2.5, 'cat-cow':2.5, 'sentadilla-parcial':3.5,
+  hiit:8, caminata:3.5
+};
+
+function getPeso() { return parseFloat(localStorage.getItem('user_peso_kg')) || 70; }
+function guardarPeso() {
+  var val = parseFloat(document.getElementById('peso-input').value);
+  if (!val || val < 30 || val > 200) return;
+  localStorage.setItem('user_peso_kg', val);
+  document.getElementById('peso-status').textContent = '✅ Peso guardado: ' + val + ' kg';
+  renderStats();
+  renderComidas();
+}
+function getFechaHoy() { return new Date().toISOString().slice(0,10); }
+
+function getStatsFecha(fecha) {
+  var raw = localStorage.getItem('stats_' + fecha);
+  return raw ? JSON.parse(raw) : {sesiones:[], pasos:0};
+}
+function saveStatsFecha(fecha, data) { localStorage.setItem('stats_' + fecha, JSON.stringify(data)); }
+
+function getStatsHoy() { return getStatsFecha(getFechaHoy()); }
+function saveStatsHoy(data) {
+  saveStatsFecha(getFechaHoy(), data);
+  if (typeof syncPushToFirebase === 'function') syncPushToFirebase();
+}
+
+function getComidasFecha(fecha) {
+  var raw = localStorage.getItem('comidas_' + fecha);
+  return raw ? JSON.parse(raw) : {items:[]};
+}
+function saveComidasFecha(fecha, data) { localStorage.setItem('comidas_' + fecha, JSON.stringify(data)); }
+
+function getComidasHoy() { return getComidasFecha(getFechaHoy()); }
+function saveComidasHoy(data) {
+  saveComidasFecha(getFechaHoy(), data);
+  if (typeof syncPushToFirebase === 'function') syncPushToFirebase();
+}
+
+function calcularCalorias(id, minutos, pesoKg) {
+  return Math.round((MET[id] || 4) * pesoKg * (minutos / 60));
+}
+
+function registrarSesion() {
+  var id = document.getElementById('stats-ejercicio').value;
+  var nombre = document.getElementById('stats-ejercicio').selectedOptions[0].text;
+  var min = parseInt(document.getElementById('stats-minutos').value);
+  if (!min || min < 1) { alert('Ingresá los minutos.'); return; }
+  var cal = calcularCalorias(id, min, getPeso());
+  var stats = getStatsHoy();
+  stats.sesiones.push({id:id, nombre:nombre, minutos:min, cal:cal, ts:Date.now()});
+  saveStatsHoy(stats);
+  document.getElementById('stats-minutos').value = '';
+  renderStats();
+  renderComidas();
+}
+
+function eliminarSesion(ts) {
+  var stats = getStatsHoy();
+  stats.sesiones = stats.sesiones.filter(function(s){ return s.ts !== ts; });
+  saveStatsHoy(stats);
+  renderStats();
+  renderComidas();
+}
+
+function renderStats() {
+  var stats = getStatsHoy();
+  var peso = getPeso();
+  var lista = document.getElementById('lista-sesiones');
+  if (lista) {
+    if (stats.sesiones.length === 0) {
+      lista.innerHTML = '<p style="font-size:12px;color:#57606a;text-align:center;padding:8px 0;">Aún no registraste sesiones hoy.</p>';
+    } else {
+      var html = '<div style="background:#f7f8fa;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">';
+      stats.sesiones.forEach(function(s) {
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid #e5e7eb;font-size:13px;">' +
+          '<span>' + s.nombre + ' <span style="color:#57606a;">' + s.minutos + ' min</span></span>' +
+          '<span style="display:flex;align-items:center;gap:8px;">' +
+            '<span style="font-weight:700;color:#16a34a;">' + s.cal + ' kcal</span>' +
+            '<button onclick="eliminarSesion(' + s.ts + ')" style="background:none;border:none;cursor:pointer;color:#57606a;font-size:14px;padding:0;">✕</button>' +
+          '</span></div>';
+      });
+      html += '</div>';
+      lista.innerHTML = html;
+    }
+  }
+
+  var totalEjercicio = stats.sesiones.reduce(function(acc,s){ return acc+s.cal; }, 0);
+  var calPasos = Math.round((stats.pasos||0) * 0.04 * (peso/70));
+  var total = totalEjercicio + calPasos;
+
+  var elTotEj = document.getElementById('total-ejercicio-display');
+  var elTotPas = document.getElementById('total-pasos-cal-display');
+  var elTotCal = document.getElementById('total-cal-display');
+  var elPasos = document.getElementById('pasos-display');
+  var elPasosCal = document.getElementById('pasos-cal-display');
+
+  if (elTotEj) elTotEj.textContent = totalEjercicio;
+  if (elTotPas) elTotPas.textContent = calPasos;
+  if (elTotCal) elTotCal.textContent = total;
+  if (elPasos) elPasos.textContent = stats.pasos || 0;
+  if (elPasosCal) elPasosCal.textContent = calPasos;
+
+  renderHistorialDias();
+}
+
+// ── Registro de Comidas y Alimentos (Fase 2) ─────────────────────────────────
+function seleccionarComidaFrecuente() {
+  var sel = document.getElementById('comida-frecuente');
+  var val = sel.value;
+  if (!val) return;
+  var partes = val.split('|');
+  document.getElementById('comida-nombre').value = partes[0] || '';
+  document.getElementById('comida-calorias').value = partes[1] || '';
+  document.getElementById('comida-prot').value = partes[2] || '';
+  document.getElementById('comida-carbs').value = partes[3] || '';
+  document.getElementById('comida-grasas').value = partes[4] || '';
+}
+
+function registrarAlimento() {
+  var nom = document.getElementById('comida-nombre').value.trim();
+  var cal = parseInt(document.getElementById('comida-calorias').value);
+  var prot = parseFloat(document.getElementById('comida-prot').value) || 0;
+  var carbs = parseFloat(document.getElementById('comida-carbs').value) || 0;
+  var grasas = parseFloat(document.getElementById('comida-grasas').value) || 0;
+
+  if (!nom || isNaN(cal) || cal < 0) {
+    alert('Ingresá el nombre y las calorías.');
+    return;
+  }
+
+  var comidas = getComidasHoy();
+  comidas.items.push({
+    nombre: nom,
+    cal: cal,
+    prot: prot,
+    carbs: carbs,
+    grasas: grasas,
+    hora: new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}),
+    ts: Date.now()
+  });
+  saveComidasHoy(comidas);
+
+  // Limpiar campos
+  document.getElementById('comida-nombre').value = '';
+  document.getElementById('comida-calorias').value = '';
+  document.getElementById('comida-prot').value = '';
+  document.getElementById('comida-carbs').value = '';
+  document.getElementById('comida-grasas').value = '';
+  document.getElementById('comida-frecuente').value = '';
+
+  renderComidas();
+}
+
+function eliminarAlimento(ts) {
+  var comidas = getComidasHoy();
+  comidas.items = comidas.items.filter(function(c){ return c.ts !== ts; });
+  saveComidasHoy(comidas);
+  renderComidas();
+}
+
+function renderComidas() {
+  var comidas = getComidasHoy();
+  var stats = getStatsHoy();
+  var peso = getPeso();
+
+  var totalCal = 0;
+  var totalProt = 0;
+  var totalCarbs = 0;
+  var totalGrasas = 0;
+
+  var listaEl = document.getElementById('lista-comidas');
+  if (listaEl) {
+    if (comidas.items.length === 0) {
+      listaEl.innerHTML = '<p style="font-size:12px;color:#57606a;text-align:center;padding:8px 0;">No cargaste alimentos hoy todavía.</p>';
+    } else {
+      var html = '<div style="background:#f7f8fa;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">';
+      comidas.items.forEach(function(item) {
+        totalCal += item.cal;
+        totalProt += item.prot;
+        totalCarbs += item.carbs;
+        totalGrasas += item.grasas;
+
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid #e5e7eb;font-size:13px;">' +
+          '<div>' +
+            '<div><strong>' + item.nombre + '</strong> <span style="font-size:11px;color:#57606a;">(' + (item.hora || '') + ')</span></div>' +
+            '<div style="font-size:11px;color:#57606a;">P: ' + item.prot + 'g | C: ' + item.carbs + 'g | G: ' + item.grasas + 'g</div>' +
+          '</div>' +
+          '<div style="display:flex;align-items:center;gap:8px;">' +
+            '<span style="font-weight:700;color:#ea580c;">' + item.cal + ' kcal</span>' +
+            '<button onclick="eliminarAlimento(' + item.ts + ')" style="background:none;border:none;cursor:pointer;color:#57606a;font-size:14px;padding:0;">✕</button>' +
+          '</div>' +
+        '</div>';
+      });
+      html += '</div>';
+      listaEl.innerHTML = html;
+    }
+  } else {
+    comidas.items.forEach(function(item){
+      totalCal += item.cal;
+      totalProt += item.prot;
+      totalCarbs += item.carbs;
+      totalGrasas += item.grasas;
+    });
+  }
+
+  var elTotCal = document.getElementById('comidas-total-cal');
+  var elProt = document.getElementById('comidas-total-prot');
+  var elCarbs = document.getElementById('comidas-total-carbs');
+  var elGrasas = document.getElementById('comidas-total-grasas');
+
+  if (elTotCal) elTotCal.textContent = totalCal;
+  if (elProt) elProt.textContent = Math.round(totalProt);
+  if (elCarbs) elCarbs.textContent = Math.round(totalCarbs);
+  if (elGrasas) elGrasas.textContent = Math.round(totalGrasas);
+
+  // Balance Neto
+  var totalEjercicio = stats.sesiones.reduce(function(acc,s){ return acc+s.cal; }, 0);
+  var calPasos = Math.round((stats.pasos||0) * 0.04 * (peso/70));
+  var totalQuemado = totalEjercicio + calPasos;
+  var neto = totalCal - totalQuemado;
+
+  var elBalance = document.getElementById('balance-neto-display');
+  if (elBalance) {
+    var signo = neto > 0 ? '+' : '';
+    elBalance.textContent = signo + neto + ' kcal (' + totalCal + ' in − ' + totalQuemado + ' out)';
+    elBalance.style.color = neto <= 0 ? '#16a34a' : '#ea580c';
+  }
+}
+
+// ── Historial de los últimos 7 días ──────────────────────────────────────────
+function renderHistorialDias() {
+  var container = document.getElementById('historial-dias-container');
+  if (!container) return;
+
+  var peso = getPeso();
+  var html = '<div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;font-size:12px;">';
+  
+  var hoy = new Date();
+  var totalDiasEntrenados = 0;
+
+  for (var i = 0; i < 7; i++) {
+    var d = new Date();
+    d.setDate(hoy.getDate() - i);
+    var fechaStr = d.toISOString().slice(0,10);
+    var diaNombre = d.toLocaleDateString('es-AR', {weekday:'short', day:'numeric', month:'short'});
+
+    var s = getStatsFecha(fechaStr);
+    var c = getComidasFecha(fechaStr);
+
+    var calEj = s.sesiones.reduce(function(acc,it){ return acc+it.cal; }, 0);
+    var calPas = Math.round((s.pasos||0) * 0.04 * (peso/70));
+    var quemado = calEj + calPas;
+    var ingerido = c.items.reduce(function(acc,it){ return acc+it.cal; }, 0);
+
+    if (s.sesiones.length > 0) totalDiasEntrenados++;
+
+    var esHoy = (i === 0);
+    html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-bottom:1px solid #f0f0f0;' + (esHoy ? 'background:#f8fafc;' : '') + '">' +
+      '<div>' +
+        '<span style="font-weight:' + (esHoy ? '700' : '600') + ';color:' + (esHoy ? '#3b82d4' : '#1f2328') + ';">' + (esHoy ? 'Hoy (' + diaNombre + ')' : diaNombre) + '</span>' +
+        '<div style="font-size:11px;color:#57606a;">' + s.sesiones.length + ' ejercicios · ' + (s.pasos || 0) + ' pasos</div>' +
+      '</div>' +
+      '<div style="text-align:right;">' +
+        '<span style="color:#16a34a;font-weight:700;">🔥 ' + quemado + ' kcal</span>' +
+        (ingerido > 0 ? '<div style="font-size:11px;color:#ea580c;">🥗 ' + ingerido + ' kcal</div>' : '') +
+      '</div>' +
+    '</div>';
+  }
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+// ── Contador de pasos (DeviceMotion) ─────────────────────────────────────────
+var _pasosListener = null;
+var _enPaso = false;
+var PASO_THRESHOLD = 12;
+
+function iniciarPasos() {
+  if (typeof DeviceMotionEvent === 'undefined') {
+    mostrarErrorPasos('Tu dispositivo no tiene acelerómetro detectado.'); return;
+  }
+  if (typeof DeviceMotionEvent.requestPermission === 'function') {
+    DeviceMotionEvent.requestPermission().then(function(state) {
+      if (state === 'granted') _activarContadorPasos();
+      else mostrarErrorPasos('Permiso de movimiento denegado.');
+    }).catch(function(e){ mostrarErrorPasos('Error al pedir permiso: ' + e.message); });
+  } else {
+    _activarContadorPasos();
+  }
+}
+function _activarContadorPasos() {
+  document.getElementById('btn-iniciar-pasos').style.display = 'none';
+  document.getElementById('btn-detener-pasos').style.display = 'inline-block';
+  document.getElementById('pasos-error').style.display = 'none';
+  _pasosListener = function(ev) {
+    var a = ev.accelerationIncludingGravity;
+    if (!a) return;
+    var mag = Math.sqrt(a.x*a.x + a.y*a.y + a.z*a.z);
+    if (mag > PASO_THRESHOLD && !_enPaso) {
+      _enPaso = true;
+      var stats = getStatsHoy();
+      stats.pasos = (stats.pasos || 0) + 1;
+      saveStatsHoy(stats);
+      renderStats();
+    } else if (mag < PASO_THRESHOLD - 3) {
+      _enPaso = false;
+    }
+  };
+  window.addEventListener('devicemotion', _pasosListener);
+}
+function detenerPasos() {
+  if (_pasosListener) window.removeEventListener('devicemotion', _pasosListener);
+  _pasosListener = null;
+  document.getElementById('btn-iniciar-pasos').style.display = 'inline-block';
+  document.getElementById('btn-detener-pasos').style.display = 'none';
+}
+function resetPasos() {
+  detenerPasos();
+  var stats = getStatsHoy();
+  stats.pasos = 0;
+  saveStatsHoy(stats);
+  renderStats();
+}
+function mostrarErrorPasos(msg) {
+  var el = document.getElementById('pasos-error');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+// ── Sincronización Firebase en Tiempo Real ───────────────────────────────────
+var _firebaseDb = null;
+var _firebaseUnsub = null;
+var _isSyncingFromRemote = false;
+
+function getSyncUserId() {
+  return localStorage.getItem('sync_user_id') || 'usuario_demo';
+}
+
+function guardarSyncUserId() {
+  var val = document.getElementById('sync-user-id').value.trim();
+  if (!val) return;
+  localStorage.setItem('sync_user_id', val);
+  document.getElementById('sync-status').textContent = '✅ ID sincronizado: ' + val;
+  initFirebaseSync();
+}
+
+function guardarFirebaseCustomConfig() {
+  var val = document.getElementById('firebase-custom-config').value.trim();
+  if (!val) return;
+  try {
+    JSON.parse(val);
+    localStorage.setItem('firebase_custom_config', val);
+    alert('Configuración guardada. Reiniciando sincronización...');
+    location.reload();
+  } catch(e) {
+    alert('JSON inválido. Revisá las comillas y formato.');
+  }
+}
+
+function initFirebaseSync() {
+  var syncId = getSyncUserId();
+  var inputEl = document.getElementById('sync-user-id');
+  if (inputEl) inputEl.value = syncId;
+
+  // Cargar SDKs de Firebase si no están cargados
+  if (!window.firebase) {
+    var s1 = document.createElement('script');
+    s1.src = 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js';
+    s1.onload = function() {
+      var s2 = document.createElement('script');
+      s2.src = 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js';
+      s2.onload = function() { _setupFirebase(); };
+      document.head.appendChild(s2);
+    };
+    document.head.appendChild(s1);
+  } else {
+    _setupFirebase();
+  }
+}
+
+function _setupFirebase() {
+  try {
+    var customConfig = localStorage.getItem('firebase_custom_config');
+    var config = null;
+    if (customConfig) {
+      config = JSON.parse(customConfig);
+    } else {
+      // Configuración oficial del proyecto Firebase del usuario
+      config = {
+        apiKey: "AIzaSyCvoD4nEyYMuYfFGm4bsp5aWh0c-z1W25E",
+        authDomain: "app-ejercicio-18ad2.firebaseapp.com",
+        projectId: "app-ejercicio-18ad2",
+        storageBucket: "app-ejercicio-18ad2.firebasestorage.app",
+        messagingSenderId: "947477177593",
+        appId: "1:947477177593:web:def51150edf8e349166e28"
+      };
+    }
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
+    _firebaseDb = firebase.firestore();
+
+    var syncId = getSyncUserId();
+    var docRef = _firebaseDb.collection('entrenamientos').doc(syncId);
+
+    // Escuchar cambios en tiempo real
+    if (_firebaseUnsub) _firebaseUnsub();
+    _firebaseUnsub = docRef.onSnapshot(function(doc) {
+      if (doc.exists) {
+        var data = doc.data();
+        _aplicarDatosRemotos(data);
+      }
+    }, function(err) {
+      console.log('Firebase sync local mode (esperando config propia o modo offline):', err.message);
+    });
+
+  } catch(e) {
+    console.log('Firebase init error:', e.message);
+  }
+}
+
+function _aplicarDatosRemotos(remoteData) {
+  _isSyncingFromRemote = true;
+  try {
+    if (remoteData.cal_completados) {
+      localStorage.setItem('cal_completados', JSON.stringify(remoteData.cal_completados));
+      actualizarEstadoCompletadosVisual();
+    }
+    if (remoteData.statsHoy) {
+      localStorage.setItem('stats_' + getFechaHoy(), JSON.stringify(remoteData.statsHoy));
+      renderStats();
+    }
+    if (remoteData.comidasHoy) {
+      localStorage.setItem('comidas_' + getFechaHoy(), JSON.stringify(remoteData.comidasHoy));
+      renderComidas();
+    }
+    if (remoteData.peso) {
+      localStorage.setItem('user_peso_kg', remoteData.peso);
+    }
+  } finally {
+    _isSyncingFromRemote = false;
+  }
+}
+
+function syncPushToFirebase() {
+  if (_isSyncingFromRemote || !_firebaseDb) return;
+  var syncId = getSyncUserId();
+  var payload = {
+    cal_completados: getCompletadosCalendario(),
+    statsHoy: getStatsHoy(),
+    comidasHoy: getComidasHoy(),
+    peso: getPeso(),
+    updatedAt: Date.now()
+  };
+  _firebaseDb.collection('entrenamientos').doc(syncId).set(payload, {merge: true}).catch(function(e){
+    console.log('Sync offline:', e.message);
+  });
+}
+
+// ── Service Worker (PWA) ─────────────────────────────────────────────────────
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./sw.js').then(function(reg) {
+      console.log('PWA Service Worker registrado con éxito:', reg.scope);
+    }).catch(function(err) {
+      console.log('PWA Service Worker fallo al registrar:', err);
+    });
+  });
+}
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  renderNotas();
+  var key = getApiKey();
+  if (key) document.getElementById('key-status').textContent = '✅ API key configurada.';
+  var peso = getPeso();
+  if (localStorage.getItem('user_peso_kg')) {
+    document.getElementById('peso-input').value = peso;
+    document.getElementById('peso-status').textContent = 'Peso guardado: ' + peso + ' kg';
+  }
+  renderStats();
+  renderComidas();
+  cronInyectarIconos();
+  calNavRender();
+  initFirebaseSync();
+});
+
+// ── VISOR 3 DÍAS ──────────────────────────────────────────────────────────────
+var calNavOffset = 0;   // índice del primer día visible (0-based)
+var DIAS = ['LUN','MAR','MIÉ','JUE','VIE','SÁB','DOM'];
+
+function calGetCeldas() {
+  // Devuelve array de .cal-cell del mes activo (excluye .cal-day-header y .empty)
+  var monthEl = document.querySelector('.cal-month.active');
+  if (!monthEl) return [];
+  return Array.from(monthEl.querySelectorAll('.cal-cell:not(.empty)'));
+}
+
+function calGetHeaders() {
+  var monthEl = document.querySelector('.cal-month.active');
+  if (!monthEl) return [];
+  return Array.from(monthEl.querySelectorAll('.cal-day-header'));
+}
+
+function calNavRender() {
+  var celdas = calGetCeldas();
+  var headers = calGetHeaders();
+  var total = celdas.length;
+  if (total === 0) return;
+
+  // Clamp offset
+  if (calNavOffset < 0) calNavOffset = 0;
+  if (calNavOffset > total - 1) calNavOffset = total - 3;
+
+  // Activar modo grid 3 columnas
+  var grid = document.querySelector('.cal-month.active .cal-grid');
+  if (grid) grid.classList.add('view3');
+
+  // Ocultar todas las celdas y headers, mostrar solo las 3 del rango
+  celdas.forEach(function(c, i) {
+    c.style.display = (i >= calNavOffset && i < calNavOffset + 3) ? '' : 'none';
+  });
+
+  // Reconstruir headers con los días correctos
+  var diasVisibles = [];
+  for (var i = calNavOffset; i < calNavOffset + 3 && i < total; i++) {
+    diasVisibles.push(DIAS[i % 7]);
+  }
+  headers.forEach(function(h, i) {
+    h.style.display = i < diasVisibles.length ? '' : 'none';
+    if (i < diasVisibles.length) h.textContent = diasVisibles[i];
+  });
+
+  // Actualizar info de navegación
+  var d1 = calNavOffset + 1;
+  var d2 = Math.min(calNavOffset + 3, total);
+  var sem = Math.floor(calNavOffset / 7) + 1;
+  document.getElementById('cal-nav-info').childNodes[0].textContent = 'Días ' + d1 + ' – ' + d2;
+  document.getElementById('cal-nav-sub').textContent = 'Semana ' + sem + ' · ' + total + ' días en total';
+
+  // Re-inyectar cronómetro en los nuevos elementos visibles
+  cronInyectarIconos();
+}
+
+function calNavMover(delta) {
+  var celdas = calGetCeldas();
+  var total = celdas.length;
+  calNavOffset = Math.max(0, Math.min(calNavOffset + delta, total - 1));
+  calNavRender();
+}
+
+function showMonth(id, tab) {
+  document.querySelectorAll('.cal-month').forEach(function(el){ el.classList.remove('active'); });
+  document.querySelectorAll('.cal-tab').forEach(function(el){ el.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  tab.classList.add('active');
+  calNavOffset = 0;
+  calNavRender();
+}
+
+// ── CRONÓMETRO ────────────────────────────────────────────────────────────────
+// Modos:
+//  'stopwatch'  → ejercicio por repeticiones: cuenta hacia arriba, se detiene al volver a presionar
+//  'countdown'  → ejercicio por tiempo: cuenta regresiva, se detiene automáticamente
+//  'warmup'     → calentamiento: cuenta regresiva 5 min (300s), se detiene automáticamente
+//  'stretch'    → estiramiento: cuenta regresiva 30s por ejercicio, se detiene automáticamente
+
+var cronState = {
+  mode: 'stopwatch',   // 'stopwatch' | 'countdown' | 'warmup' | 'stretch'
+  label: '',
+  seconds: 0,
+  target: 0,           // segundos objetivo (countdown/warmup/stretch)
+  running: false,
+  timer: null,
+  iconEl: null,        // botón que lo activó (para toggle stop en stopwatch)
+  // ── Series ──────────────────────────────────────────────────────────────
+  totalSeries: 0,      // total de series del ejercicio (0 = desconocido)
+  serieActual: 0,      // serie en curso (1-based)
+  exId: '',
+  calKey: ''           // clave única para persistir tilde en calendario
+};
+
+// Tabla de ejercicios por tiempo con sus segundos
+// formato: 'id': segundos  (se usa el máximo sugerido de la rutina)
+var TIEMPO_EJERCICIOS = {
+  'plancha': 60, 'plancha-lateral': 60, 'mountain': 40, 'kegel': 10,
+  'superman': 3, 'bicicleta': 0, 'burpees': 0,
+  'jumping-jacks': 40, 'sentadilla-salto': 40, 'high-knees': 40
+};
+
+// Extrae segundos del texto del link (ej "Plancha 3×60s" → 60)
+function cronExtraerSegundos(txt) {
+  var m = txt.match(/(\d+)\s*s\b/i);
+  return m ? parseInt(m[1]) : 0;
+}
+
+// Extrae cantidad de series del texto del link (ej "Flexiones 3×8" → 3, "Plancha 3×30s" → 3)
+function cronExtraerSeries(txt) {
+  var m = txt.match(/(\d+)\s*[×x]\s*\d+/i);
+  return m ? parseInt(m[1]) : 0;
+}
+
+function cronEsCalentamiento(el) {
+  // Buscamos la .cal-section más cercana hacia arriba
+  var node = el;
+  while (node) {
+    node = node.previousElementSibling;
+    if (node && node.classList.contains('cal-section')) {
+      return node.textContent.indexOf('Calentamiento') !== -1;
+    }
+  }
+  return false;
+}
+
+function cronEsEstiramiento(el) {
+  var node = el;
+  while (node) {
+    node = node.previousElementSibling;
+    if (node && node.classList.contains('cal-section')) {
+      return node.textContent.indexOf('Estiramiento') !== -1;
+    }
+  }
+  return false;
+}
+
+function getCalKey(a) {
+  var cell = a.closest('.cal-cell');
+  var num = cell ? (cell.querySelector('.cal-num') ? cell.querySelector('.cal-num').textContent.trim() : '') : '';
+  var monthEl = a.closest('.cal-month');
+  var mId = monthEl ? monthEl.id : 'm1';
+  var href = a.getAttribute('href') || '';
+  var txt = a.textContent.trim();
+  return mId + '_d' + num + '_' + href + '_' + txt;
+}
+
+function getCompletadosCalendario() {
+  var raw = localStorage.getItem('cal_completados');
+  return raw ? JSON.parse(raw) : {};
+}
+
+function toggleCompletadoCalendario(calKey) {
+  var data = getCompletadosCalendario();
+  if (data[calKey]) {
+    delete data[calKey];
+  } else {
+    data[calKey] = Date.now();
+  }
+  localStorage.setItem('cal_completados', JSON.stringify(data));
+  actualizarEstadoCompletadosVisual();
+  if (typeof syncPushToFirebase === 'function') syncPushToFirebase();
+}
+
+function marcarCompletadoCalendario(calKey) {
+  if (!calKey) return;
+  var data = getCompletadosCalendario();
+  data[calKey] = Date.now();
+  localStorage.setItem('cal_completados', JSON.stringify(data));
+  actualizarEstadoCompletadosVisual();
+  if (typeof syncPushToFirebase === 'function') syncPushToFirebase();
+}
+
+function actualizarEstadoCompletadosVisual() {
+  var data = getCompletadosCalendario();
+  document.querySelectorAll('.cal-ex-row').forEach(function(row) {
+    var a = row.querySelector('.cal-ex-link');
+    if (!a) return;
+    var k = row.getAttribute('data-cal-key');
+    var isDone = !!data[k];
+    if (isDone) {
+      row.classList.add('completed');
+    } else {
+      row.classList.remove('completed');
+    }
+    var chk = row.querySelector('.btn-cron-check');
+    if (chk) {
+      chk.innerHTML = isDone ? '✅' : '⚪';
+    }
+  });
+}
+
+function cronInyectarIconos() {
+  // Envuelve cada cal-ex-link en un .cal-ex-row y agrega el botón ⏱ y el checkbox de completado
+  document.querySelectorAll('.cal-ex-link').forEach(function(a) {
+    var row;
+    var calKey = getCalKey(a);
+
+    if (a.parentElement && a.parentElement.classList.contains('cal-ex-row')) {
+      row = a.parentElement;
+      row.setAttribute('data-cal-key', calKey);
+      return;
+    }
+
+    row = document.createElement('div');
+    row.className = 'cal-ex-row';
+    row.setAttribute('data-cal-key', calKey);
+    a.parentNode.insertBefore(row, a);
+
+    // Botón check / descheck manual
+    var chkBtn = document.createElement('button');
+    chkBtn.className = 'btn-cron-check';
+    chkBtn.title = 'Marcar como completado';
+    chkBtn.innerHTML = '⚪';
+    chkBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      toggleCompletadoCalendario(calKey);
+    });
+    row.appendChild(chkBtn);
+
+    row.appendChild(a);
+
+    // Botón cronómetro
+    var btn = document.createElement('button');
+    btn.className = 'btn-cron-icon';
+    btn.title = 'Cronómetro';
+    btn.innerHTML = '⏱';
+    btn.setAttribute('data-label', a.textContent.trim());
+    btn.setAttribute('data-href', a.getAttribute('href') || '');
+    btn.setAttribute('data-cal-key', calKey);
+    row.appendChild(btn);
+
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      cronAbrir(btn);
+    });
+  });
+
+  actualizarEstadoCompletadosVisual();
+}
+
+function cronAbrir(btnEl) {
+  var label = btnEl.getAttribute('data-label');
+  var href  = btnEl.getAttribute('data-href');
+  var calKey = btnEl.getAttribute('data-cal-key') || '';
+  var exId  = href ? href.replace('#','') : '';
+  var txt   = label;
+
+  // ¿Ya está corriendo este mismo botón en modo stopwatch? → lo para
+  if (cronState.running && cronState.mode === 'stopwatch' && cronState.iconEl === btnEl) {
+    cronFinalizarSerie();
+    return;
+  }
+
+  // Detectar modo
+  var mode, target;
+  var segundosTexto = cronExtraerSegundos(txt);
+
+  if (cronEsCalentamiento(btnEl.parentElement)) {
+    mode   = 'warmup';
+    target = 300; // 5 minutos
+  } else if (cronEsEstiramiento(btnEl.parentElement)) {
+    mode   = 'stretch';
+    target = 30; // 30 segundos
+  } else if (segundosTexto > 0) {
+    mode   = 'countdown';
+    target = segundosTexto;
+  } else if (TIEMPO_EJERCICIOS[exId] > 0) {
+    mode   = 'countdown';
+    target = TIEMPO_EJERCICIOS[exId];
+  } else {
+    mode   = 'stopwatch';
+    target = 0;
+  }
+
+  // Si hay uno corriendo, pararlo primero
+  if (cronState.running) cronDetener();
+
+  var series = cronExtraerSeries(label);
+
+  cronState.mode        = mode;
+  cronState.label       = label;
+  cronState.target      = target;
+  cronState.seconds     = mode === 'countdown' || mode === 'warmup' || mode === 'stretch' ? target : 0;
+  cronState.running     = false;
+  cronState.iconEl      = btnEl;
+  cronState.totalSeries = series;
+  cronState.serieActual = series > 0 ? 1 : 0;
+  cronState.exId        = exId;
+  cronState.calKey      = calKey;
+
+  // Poblar modal
+  document.getElementById('cron-title').textContent = label;
+  cronActualizarSeries();
+
+  var modeTag = document.getElementById('cron-mode-tag');
+  var modeTexts = {
+    stopwatch: {cls:'stopwatch', txt:'⏱ Conteo libre — presioná ⏱ de nuevo para detener'},
+    countdown: {cls:'countdown', txt:'⏳ Cuenta regresiva — se detiene automáticamente'},
+    warmup:    {cls:'warmup',    txt:'🔥 Calentamiento — 5 minutos máximo'},
+    stretch:   {cls:'stretch',  txt:'🧘 Estiramiento — 30 segundos'}
+  };
+  modeTag.className = 'cron-mode-tag ' + modeTexts[mode].cls;
+  modeTag.textContent = modeTexts[mode].txt;
+
+  cronActualizarDisplay();
+  document.getElementById('cron-status').textContent = '';
+  document.getElementById('cron-status').className = 'cron-status';
+
+  var btnStart = document.getElementById('cron-btn-start');
+  btnStart.textContent = '▶ Iniciar';
+  btnStart.className = 'cron-btn start';
+  btnStart.style.display = '';
+  document.getElementById('cron-btn-reset').style.display = '';
+
+  document.getElementById('cron-overlay').classList.add('open');
+}
+
+function cronActualizarDisplay() {
+  var s = cronState.mode === 'stopwatch' ? cronState.seconds
+        : cronState.seconds;
+  var mm = String(Math.floor(s / 60)).padStart(2,'0');
+  var ss = String(s % 60).padStart(2,'0');
+  var el = document.getElementById('cron-display');
+  el.textContent = mm + ':' + ss;
+  el.className = 'cron-display' + (cronState.running ? ' running' : '');
+}
+
+// ── Cuenta regresiva de 3 segundos antes de arrancar ─────────────────────────
+function cronIniciarConCuentaAtras(callback) {
+  var cuenta = 3;
+  var st = document.getElementById('cron-status');
+  var display = document.getElementById('cron-display');
+  document.getElementById('cron-btn-start').style.display = 'none';
+  document.getElementById('cron-btn-reset').disabled = true;
+
+  st.textContent = 'Preparate... ' + cuenta;
+  st.className = 'cron-status alert';
+  display.textContent = '00:0' + cuenta;
+  display.className = 'cron-display';
+
+  cronState.timer = setInterval(function() {
+    cuenta--;
+    if (cuenta > 0) {
+      st.textContent = 'Preparate... ' + cuenta;
+      display.textContent = '00:0' + cuenta;
+    } else {
+      clearInterval(cronState.timer);
+      cronState.timer = null;
+      document.getElementById('cron-btn-reset').disabled = false;
+      st.textContent = '';
+      st.className = 'cron-status';
+      callback();
+    }
+  }, 1000);
+}
+
+function cronIniciar() {
+  if (cronState.running) return;
+
+  cronIniciarConCuentaAtras(function() {
+    cronState.running = true;
+    document.getElementById('cron-display').classList.add('running');
+
+    if (cronState.mode === 'stopwatch') {
+      cronState.timer = setInterval(function() {
+        cronState.seconds++;
+        cronActualizarDisplay();
+      }, 1000);
+      var st = document.getElementById('cron-status');
+      st.textContent = cronState.totalSeries > 0
+        ? 'Serie ' + cronState.serieActual + ' de ' + cronState.totalSeries
+        : 'Presioná ⏱ en el calendario para detener';
+      st.className = 'cron-status';
+    } else {
+      // countdown / warmup / stretch → cuenta regresiva
+      cronState.timer = setInterval(function() {
+        cronState.seconds--;
+        cronActualizarDisplay();
+        if (cronState.seconds <= 10 && cronState.seconds > 0) {
+          var st = document.getElementById('cron-status');
+          st.textContent = '⚠️ ' + cronState.seconds + ' segundos...';
+          st.className = 'cron-status alert';
+        }
+        if (cronState.seconds <= 0) {
+          cronFinalizarSerie();
+        }
+      }, 1000);
+      var st2 = document.getElementById('cron-status');
+      st2.textContent = cronState.totalSeries > 0
+        ? 'Serie ' + cronState.serieActual + ' de ' + cronState.totalSeries
+        : '';
+      st2.className = 'cron-status';
+    }
+  });
+}
+
+function cronDetener() {
+  if (!cronState.running) return;
+  // Si es stopwatch y tiene series, terminar la serie actual
+  if (cronState.mode === 'stopwatch' && cronState.totalSeries > 0) {
+    cronFinalizarSerie();
+    return;
+  }
+  clearInterval(cronState.timer);
+  cronState.timer = null;
+  cronState.running = false;
+  var el = document.getElementById('cron-display');
+  el.classList.remove('running');
+  var btnStart = document.getElementById('cron-btn-start');
+  btnStart.textContent = '▶ Continuar';
+  btnStart.className = 'cron-btn start';
+  btnStart.style.display = '';
+  var st = document.getElementById('cron-status');
+  st.textContent = 'Pausado';
+  st.className = 'cron-status';
+}
+
+// Llamado al final de una serie (countdown) o cuando el usuario detiene (stopwatch)
+function cronFinalizarSerie() {
+  clearInterval(cronState.timer);
+  cronState.timer = null;
+  cronState.running = false;
+  if (navigator.vibrate) navigator.vibrate([150, 80, 150]);
+
+  var el = document.getElementById('cron-display');
+  el.className = 'cron-display done';
+  var st = document.getElementById('cron-status');
+  var btnStart = document.getElementById('cron-btn-start');
+
+  if (cronState.totalSeries > 0 && cronState.serieActual < cronState.totalSeries) {
+    // Quedan series
+    var restantes = cronState.totalSeries - cronState.serieActual;
+    el.textContent = '00:00';
+    st.textContent = '✅ Serie ' + cronState.serieActual + ' lista · Quedan ' + restantes;
+    st.className = 'cron-status';
+    cronState.serieActual++;
+    // Resetear el tiempo para la próxima serie
+    cronState.seconds = (cronState.mode === 'countdown' || cronState.mode === 'warmup' || cronState.mode === 'stretch')
+      ? cronState.target : 0;
+    cronActualizarDisplay();
+    btnStart.textContent = '▶ Serie ' + cronState.serieActual;
+    btnStart.className = 'cron-btn start';
+    btnStart.style.display = '';
+  } else {
+    // Todas las series completas (o no hay info de series)
+    cronState.seconds = 0;
+    el.textContent = '00:00';
+    el.className = 'cron-display done';
+
+    // Auto-registrar en stats diarias y marcar en calendario
+    var minutosRegistrar = 2; // estimado base
+    if (cronState.mode === 'warmup') {
+      minutosRegistrar = 5;
+    } else if (cronState.mode === 'stretch') {
+      minutosRegistrar = 1;
+    } else if (cronState.mode === 'countdown' && cronState.target > 0) {
+      var cant = Math.max(1, cronState.totalSeries || 1);
+      minutosRegistrar = Math.max(1, Math.round((cronState.target * cant) / 60));
+    } else if (cronState.totalSeries > 0) {
+      minutosRegistrar = Math.max(1, Math.round(cronState.totalSeries * 0.8));
+    }
+
+    var exId = cronState.exId || 'calistenia';
+    var cal = calcularCalorias(exId, minutosRegistrar, getPeso());
+    if (cal < 1) cal = Math.max(1, Math.round((MET[exId] || 4) * getPeso() * (minutosRegistrar / 60)));
+
+    var stats = getStatsHoy();
+    stats.sesiones.push({
+      id: exId,
+      nombre: cronState.label || 'Ejercicio',
+      minutos: minutosRegistrar,
+      cal: cal,
+      ts: Date.now()
+    });
+    saveStatsHoy(stats);
+    renderStats();
+    renderComidas();
+
+    // Marcar en calendario con tilde verde
+    if (cronState.calKey) {
+      marcarCompletadoCalendario(cronState.calKey);
+    }
+
+    var msg = (cronState.totalSeries > 0 ? '🏆 ¡' + cronState.totalSeries + ' series completas!' : '✅ ¡Completado!') + ' (+ ' + cal + ' kcal registradas)';
+    st.textContent = msg;
+    st.className = 'cron-status';
+    btnStart.style.display = 'none';
+    if (navigator.vibrate) navigator.vibrate([200, 100, 200, 100, 200]);
+  }
+}
+
+// Mantener cronFinalizar como alias (puede ser llamado desde otros lugares)
+function cronFinalizar() { cronFinalizarSerie(); }
+
+function cronReset() {
+  clearInterval(cronState.timer);
+  cronState.timer = null;
+  cronState.running = false;
+  cronState.seconds = (cronState.mode === 'countdown' || cronState.mode === 'warmup' || cronState.mode === 'stretch')
+    ? cronState.target : 0;
+  cronState.serieActual = cronState.totalSeries > 0 ? 1 : 0;
+  var el = document.getElementById('cron-display');
+  el.className = 'cron-display';
+  cronActualizarDisplay();
+  var btnStart = document.getElementById('cron-btn-start');
+  btnStart.textContent = '▶ Iniciar';
+  btnStart.className = 'cron-btn start';
+  btnStart.style.display = '';
+  document.getElementById('cron-btn-reset').disabled = false;
+  var st = document.getElementById('cron-status');
+  st.textContent = '';
+  st.className = 'cron-status';
+  cronActualizarSeries();
+}
+
+// Muestra el subtítulo de series debajo del título del modal
+function cronActualizarSeries() {
+  var sub = document.getElementById('cron-series-info');
+  if (!sub) return;
+  if (cronState.totalSeries > 0) {
+    sub.textContent = cronState.totalSeries + ' series en total';
+    sub.style.display = 'block';
+  } else {
+    sub.style.display = 'none';
+  }
+}
+
+function cronCerrar() {
+  // Limpiar timer aunque sea la cuenta atrás de 3s (running aún false en ese momento)
+  if (cronState.timer) { clearInterval(cronState.timer); cronState.timer = null; }
+  if (cronState.running) cronDetener();
+  document.getElementById('cron-btn-reset').disabled = false;
+  document.getElementById('cron-overlay').classList.remove('open');
+}
+</script>
+
+<!-- MODAL CRONÓMETRO -->
+<div class="cron-overlay" id="cron-overlay">
+  <div class="cron-modal">
+    <div class="cron-title" id="cron-title">Ejercicio</div>
+    <div id="cron-series-info" style="display:none;font-size:12px;color:#57606a;text-align:center;margin-bottom:4px;font-weight:600;"></div>
+    <div class="cron-mode-tag countdown" id="cron-mode-tag"></div>
+    <div class="cron-display" id="cron-display">00:00</div>
+    <div class="cron-status" id="cron-status"></div>
+    <div class="cron-btns">
+      <button class="cron-btn start" id="cron-btn-start" onclick="cronIniciar()">▶ Iniciar</button>
+      <button class="cron-btn reset" id="cron-btn-reset" onclick="cronReset()">↺ Reset</button>
+    </div>
+    <button class="cron-close" onclick="cronCerrar()">✕ Cerrar</button>
+  </div>
+</div>
+
+</body>
+</html>
