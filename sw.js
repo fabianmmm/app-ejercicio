@@ -1,4 +1,4 @@
-const CACHE_NAME = 'calistenia-pwa-v1';
+const CACHE_NAME = 'calistenia-pwa-v2';
 const ASSETS_TO_CACHE = [
   './',
   './rutina-calistenia.html',
